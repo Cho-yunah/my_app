@@ -82,46 +82,14 @@ export const Article = styled.article`
   transform: matrix(1, 0, 0, 1, 0, 0);
 
   & .title {
-    margin: 90px 0;
-    padding: 30px 5px;
+    margin: 80px 0;
+    padding: 20px 5px;
     font-size: 40px;
     font-weight: 300;
     color: rgba(0, 0, 0, 0.8);
 
     @media screen and (max-width: ${breakPoints.mobile}px) {
       margin-bottom: 60px;
-    }
-  }
-`;
-
-export const MainDesc = styled.div`
-  color: rgba(0, 0, 0, 0.6);
-  width: 72%;
-  float: left;
-  margin-right: 10%;
-  display: block;
-
-  @media screen and (max-width: ${breakPoints.mobile}px) {
-    width: 90%;
-  }
-
-  & ul {
-    list-style-type: none;
-    padding: 5px;
-
-    @media screen and (max-width: ${breakPoints.mobile}px) {
-      margin-top: 60px;
-    }
-  }
-
-  & li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-    unicode-bidi: isolate;
-
-    & a {
-      font-size: 15px;
-      color: #222;
     }
   }
 `;
