@@ -3,8 +3,14 @@ import { Article, Aside, Container, Content, ContentsHeader, SideHeader, SideLis
 import ArrowRight from '@assets/svg/ArrowRight';
 import MenuHamburger from '@assets/svg/MenuHamburger';
 import { Route, Routes } from 'react-router-dom';
-import IntroContent from '@components/IntroContent';
+import SideMenu from '@components/SideMenu';
+
 import ChekitApp from '@components/ChekitApp';
+import ChekitMvp from '@components/ChekitMvp';
+import { Link } from 'react-router-dom';
+import IntroContent from '@components/IntroContent';
+import ChekitAdmin from '@components/ChekitAdmin';
+import ChekitPartners from '@components/ChekitPartners';
 
 const Workspace = () => {
   const workCount = 5;
@@ -28,14 +34,18 @@ const Workspace = () => {
   return (
     <Container>
       <Aside>
-        <SideHeader>
-          <div className="name">Yuna Cho</div>
-          <div className="desc">Frontend Engineer</div>
-          <div className="workCount">
-            <span>{workCount}</span> works
-          </div>
-        </SideHeader>
-        <SideList></SideList>
+        <Link to="/workspace/intro">
+          <SideHeader>
+            <div className="name">Yuna Cho</div>
+            <div className="desc">Frontend Engineer</div>
+            <div className="workCount">
+              <span>{workCount}</span> works
+            </div>
+          </SideHeader>
+        </Link>
+        <SideList>
+          <SideMenu />
+        </SideList>
       </Aside>
 
       <Content id="content">
@@ -44,8 +54,11 @@ const Workspace = () => {
         </ContentsHeader>
         <Article>
           <Routes>
-            <Route path="intro" element={<IntroContent />} />
-            <Route path="chekitApp" element={<ChekitApp />} />
+            <Route path="/mvp" element={<ChekitMvp />} />
+            <Route path="/admin" element={<ChekitAdmin />} />
+            <Route path="/partners" element={<ChekitPartners />} />
+            <Route path="/app" element={<ChekitApp />} />
+            <Route path="/intro" element={<IntroContent />} />
           </Routes>
         </Article>
       </Content>

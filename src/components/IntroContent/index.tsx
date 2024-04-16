@@ -1,9 +1,20 @@
 import React from 'react';
 import { MainDesc } from './style';
+import { Route, Routes, useParams } from 'react-router-dom';
+import ChekitMvp from '@components/ChekitMvp';
+import ChekitApp from '@components/ChekitApp';
 
 const IntroContent = () => {
+  const { workspace } = useParams();
+  console.log('intro', workspace);
   return (
     <div>
+      <Routes>
+        <Route path="mvp" element={<ChekitMvp />} />
+        <Route path="/app" element={<ChekitApp />} />
+        {/* <Route path="/workspace/:workspace" element={<Home />} /> */}
+        <Route path="/:workspace" element={<IntroContent />} />
+      </Routes>
       <div className="title">
         <span className="title_inner">Hello</span>
       </div>

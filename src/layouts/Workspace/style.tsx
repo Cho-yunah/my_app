@@ -14,7 +14,6 @@ export const Aside = styled.aside`
   transform: matrix(1, 0, 0, 1, 0, 0);
 
   @media screen and (max-width: ${breakPoints.mobile}px) {
-    background-color: pink;
     display: none;
   }
 `;
@@ -35,6 +34,7 @@ export const SideHeader = styled.section`
   }
 
   & .desc {
+    color: #222;
     font-size: 13px;
   }
 
