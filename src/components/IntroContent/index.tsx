@@ -9,12 +9,6 @@ const IntroContent = () => {
   console.log('intro', workspace);
   return (
     <div>
-      <Routes>
-        <Route path="mvp" element={<ChekitMvp />} />
-        <Route path="/app" element={<ChekitApp />} />
-        {/* <Route path="/workspace/:workspace" element={<Home />} /> */}
-        <Route path="/:workspace" element={<IntroContent />} />
-      </Routes>
       <div className="title">
         <span className="title_inner">Hello</span>
       </div>

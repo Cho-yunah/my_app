@@ -89,7 +89,15 @@ export const Article = styled.article`
     color: rgba(0, 0, 0, 0.8);
 
     @media screen and (max-width: ${breakPoints.mobile}px) {
-      margin-bottom: 60px;
+      margin: 50px 0;
+    }
+  }
+
+  & .description {
+    display: flex;
+
+    @media screen and (max-width: 900px) {
+      flex-direction: column-reverse;
     }
   }
 `;
