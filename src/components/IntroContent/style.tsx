@@ -60,30 +60,54 @@ export const SubDesc = styled.ul`
   }
 `;
 
+export const MainImageBox = styled.div`
+  width: 100%;
+  margin: 40px 30px;
+  text-align: center;
+
+  & .img {
+    width: 58%;
+  }
+`;
+
 export const ImageContents = styled.div`
   text-align: center;
   padding: 10px auto;
-
-  & img {
-    height: 550px;
-    margin: 40px;
-  }
+  width: 100%;
+  max-width: 1020px;
+  margin-bottom: 0;
+  background-color: #f8f9fa;
 
   & .iframe {
     height: 550px;
-    background-color: #f8f9fa;
-    width: 100%;
-    margin: 40px;
+    width: 95%;
     padding: 10px;
+
+    @media screen and (max-width: 900px) {
+      height: 450px;
+    }
   }
 `;
 
 export const Images = styled.div`
-  background: pink;
   display: grid;
+  width: 95%;
+  margin-top: 0;
+  margin-left: 40px;
+  padding: 45px 0;
 
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 400px 400px;
-  grid-gap: 15px;
-  margin-left: 38px;
+  grid-template-rows: repeat(3, 400px);
+  grid-gap: 3px;
+
+  @media screen and (max-width: 1300px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 390px);
+  }
+
+  & img {
+    max-width: 194px;
+    max-height: 400px;
+    box-shadow: 0px 0px 5px #dee2e6;
+  }
 `;
