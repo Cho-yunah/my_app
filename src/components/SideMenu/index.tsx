@@ -65,7 +65,6 @@ const SideMenu = () => {
               </MenuItem>
             </Link>
             <Ripple style={rippleStyles[index]}></Ripple>
-            {/* <RippleItem style={rippleStyle}></RippleItem> */}
           </ListItem>
         );
       })}

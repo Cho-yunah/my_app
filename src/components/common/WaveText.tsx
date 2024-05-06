@@ -10,28 +10,14 @@ interface WaveTextProps {
 
 const WaveText: React.FC<WaveTextProps> = ({ text }) => {
 
-  // const textItem = useRef<HTMLSpanElement>(null);
-  const split = new SplitType('.textItem', { types: 'chars' });
-
-  const chars = split.chars;
-  console.log(chars);
-
-  // gsap.fromTo(
-  //   chars,
-  //   { 
-  //     y: 10,
-  //     opacity: 0
-  //   },
-  //   {
-  //     y: 0,
-  //     opacity: 1,
-  //     stagger: 0.05,
-  //     duration: 2,
-  //     ease: 'power4.out',
-  //   }
-  // )
-
+  const waveRef = useRef<HTMLSpanElement>(null);
+  
+  
   useEffect(() => {
+    if (waveRef.current) {
+      const split = new SplitType('#textItem', { types: 'chars' });
+      const chars = split.chars;
+
     const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.5 });
 
     tl.fromTo(
@@ -44,22 +30,12 @@ const WaveText: React.FC<WaveTextProps> = ({ text }) => {
       '-=0.5' // 애니메이션 간격을 조절하기 위해 추가된 값
     );
     return () => tl.kill();
+    }
   }, []);
-
-  //     // let split =new SplitText("span", {type:"chars"});
-      
-  //     gsap.from(split.chars, { // <- selector text, scoped to this component!
-  //       opacity: 0,
-  //       y: 100,
-  //       ease: "back",
-  //       duration: 1,
-  //       stagger: 0.1
-  //     });
-      
   
 
   return (
-        <WaveH2  className='textItem'>
+        <WaveH2  id='textItem' ref={waveRef} style={{margin: '35px 0px 5px'}}>
           {text}
         </WaveH2>
   );

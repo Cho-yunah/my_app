@@ -14,9 +14,10 @@ const IntroContent = () => {
       </div>
       <MainDesc>
         <span>
-          Yuna&apos;s work includes a wide range of fields, reflecting his abilities in graphic design, web-based
-          design, UI design, motion graphic design, typography and many other fields. Recently he interested in iOS, web
-          developent to create the actual product. He is working as a UI/Interaction Designer.
+          Yuna&apos;s expertise lies in frontend development, collaborative problem-solving, and a strong focus on
+          customer satisfaction. she actively engages in project planning and implementation, always striving to improve
+          user experience. Committed to continual growth and excellence, she welcomes feedback and eagerly seeks
+          opportunities to contribute meaningfully to the company&apos;s goals.
         </span>
         <br />
         <ul className="links">

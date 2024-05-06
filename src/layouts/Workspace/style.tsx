@@ -11,7 +11,11 @@ export const Aside = styled.aside`
   width: 340px;
   min-width: 320px;
   height: 100vh;
-  transform: matrix(1, 0, 0, 1, 0, 0);
+  flex-shrink: 0; /* 메뉴 리스트가 컨텐츠 영역을 밀어내지 못하도록 설정 */
+  position: fixed;
+  top: 0; /* 위쪽에 고정 */
+  bottom: 0; /* 아래쪽에 고정 */
+  overflow-y: auto; /* 세로 스크롤을 허용하여 내용이 넘칠 때 스크롤 표시 */
 
   @media screen and (max-width: ${breakPoints.mobile}px) {
     display: none;
@@ -59,15 +63,22 @@ export const SideList = styled.section`
 `;
 
 export const Content = styled.div`
-  display: flex;
   flex-direction: column;
   z-index: 100;
   color: #5e5e5e;
-  width: 100%;
-  max-width: 1150px;
-  padding: 38px 52px 60px 52px;
+  max-width: 1000px;
+
+  padding: 30px 50px 60px 50px;
+  margin-left: 340px;
   -webkit-font-smoothing: antialiased;
-  // background-color: pink;
+  background-color: pink;
+  flex: 1;
+  overflow-y: auto;
+  backgroundd-color: #f9f9f9;
+
+  @media screen and (max-width: ${breakPoints.mobile}px) {
+    margin-left: 0px;
+  }
 `;
 
 export const ContentsHeader = styled.header`
