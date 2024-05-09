@@ -12,6 +12,7 @@ import IntroContent from '@components/IntroContent';
 import ChekitAdmin from '@components/ChekitAdmin';
 import ChekitPartners from '@components/ChekitPartners';
 import ChekitMvp2 from '@components/ChekitMvp2';
+import { MVP2_URLS } from 'src/constants';
 
 const Workspace = () => {
   const workCount = 5;
@@ -33,7 +34,7 @@ const Workspace = () => {
   }, []);
 
   return (
-    <Container>
+    <Container id="workspace">
       <Aside>
         <Link to="/workspace/intro">
           <SideHeader>

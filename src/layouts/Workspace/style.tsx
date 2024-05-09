@@ -64,17 +64,19 @@ export const SideList = styled.section`
 
 export const Content = styled.div`
   flex-direction: column;
-  z-index: 100;
+  // z-index: 10;
   color: #5e5e5e;
-  max-width: 1000px;
+  max-width: 1100px;
 
   padding: 30px 50px 60px 50px;
   margin-left: 340px;
   -webkit-font-smoothing: antialiased;
-  background-color: pink;
+  // background-color: pink;
   flex: 1;
   overflow-y: auto;
   backgroundd-color: #f9f9f9;
+
+  height: 100%;
 
   @media screen and (max-width: ${breakPoints.mobile}px) {
     margin-left: 0px;
@@ -91,6 +93,7 @@ export const Article = styled.article`
   display: block;
   opacity: 1;
   transform: matrix(1, 0, 0, 1, 0, 0);
+  height: 100vh;
 
   & .title {
     margin: 80px 0;
