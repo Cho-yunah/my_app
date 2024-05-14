@@ -1,38 +1,73 @@
-// import React, { FC, useCallback } from 'react';
-// import { CloseModalButton, CreateModal } from './styles';
+import React, { FC, useCallback } from 'react';
+import { CloseModalButton, ModalContainer, ModalContent } from './styles';
+import styled from '@emotion/styled';
+import Modal from 'react-modal';
 
-// interface ModalProps {
-//   show: boolean;
-//   onCloseModal: () => void;
-//   children: React.ReactNode;
-// }
+interface ModalProps {
+  show: boolean;
+  onCloseModal: () => void;
+  children: React.ReactNode;
+}
 
-// const Modal:FC<ModalProps> = ({show, children, onCloseModal}) => {
+const StyledModal = styled(Modal)`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border: none;
+  background-color: #f9f9f9;
+  padding: 10px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.16);
+  transform: translate(-30%, -50%) scale(${props => props.isOpen ? '0' : '1'});
+  transition: transform 0.5s ease-in-out; /* transform에 대한 애니메이션 */
 
-//     const stopPropagation = useCallback((e)=> {
-//       e.stopPropagation();
-//     },[])
+  &:focus {
+    outline: none; /* 포커스시 테두리 제거 */
+  }
 
-//     if(!show) {
-//       document.body.style.overflow = 'auto';
-//       return null;
-//     }
+  /* 모달이 열릴 때의 애니메이션 */
+  &.ReactModal__Content--after-open{
+    transform: translate(-30%, -50%) scale(1);
+  }
 
-//     return (<>
-//       {/* <CreateModal onClick={onCloseModal}>
-//         <div onClick={stopPropagation}>
-//           {children}
-//         </div>
-//       </CreateModal> */}
-//           <Modal
-//           isOpen={show}
-//           onRequestClose={onCloseModal}
-//           // style={customStyles}
-//           contentLabel="Example Modal"
-//         >
-//           {/* <CloseModalButton onClick={onCloseModal}>&times;</CloseModalButton> */}
-//     </>
-//     )
-// }
+  /* 모달이 닫힐 때의 애니메이션 */
+  &.ReactModal__Content--before-close {
+    transform: translate(-30%, -50%) scale(0);
+  }
+  
+  // 화면 크기가 768px 이하인 경우
+  @media (max-width: 768px) {
+    min-width: 550px;
+    &.ReactModal__Content--after-open{
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+`;
 
-// {/* export default Modal; */}
+const CreateModal:FC<ModalProps> = ({show, children, onCloseModal}) => {
+
+    const stopPropagation = useCallback((e)=> {
+      e.stopPropagation();
+    },[])
+
+    if(!show) {
+      document.body.style.overflow = 'auto';
+      return null;
+    }
+
+    return (
+      <StyledModal isOpen={show} onRequestClose={onCloseModal} >
+        <ModalContainer>
+        <CloseModalButton onClick={onCloseModal}>&times;</CloseModalButton>
+          <ModalContent>
+            {children}
+          </ModalContent>
+        </ModalContainer>
+      </StyledModal>
+    )
+};
+
+export default CreateModal;

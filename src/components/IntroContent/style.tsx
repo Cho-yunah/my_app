@@ -91,7 +91,6 @@ export const ImageContents = styled.div`
 
 export const Images = styled.div`
   display: grid;
-  width: 95%;
   margin-top: 0;
   margin-left: 40px;
   padding: 45px 0;
@@ -101,6 +100,7 @@ export const Images = styled.div`
   grid-gap: 3px;
 
   @media screen and (max-width: 1300px) {
+    margin-left: 0px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 390px);
   }

@@ -68,7 +68,8 @@ export const Content = styled.div`
   color: #5e5e5e;
   max-width: 1100px;
 
-  padding: 30px 50px 60px 50px;
+  // padding: 20px 50px 60px 50px;
+  padding: 0px;
   margin-left: 340px;
   -webkit-font-smoothing: antialiased;
   // background-color: pink;
@@ -80,12 +81,20 @@ export const Content = styled.div`
 
   @media screen and (max-width: ${breakPoints.mobile}px) {
     margin-left: 0px;
+    padding-top: 0px;
   }
 `;
 
 export const ContentsHeader = styled.header`
-  & #back_svg {
+  position: fixed;
+  width: 100%;
+  z-index: 900;
+  // background-color: pink;
+
+  & #back_svg,
+  #gnb_svg {
     transform: rotate(180deg);
+    margin: 10px 20px;
   }
 `;
 
@@ -96,19 +105,20 @@ export const Article = styled.article`
   height: 100vh;
 
   & .title {
-    margin: 80px 0;
+    margin: 80px 30px;
     padding: 20px 5px;
     font-size: 40px;
     font-weight: 300;
     color: rgba(0, 0, 0, 0.8);
 
     @media screen and (max-width: ${breakPoints.mobile}px) {
-      margin: 50px 0;
+      margin: 80px 30px 50px;
     }
   }
 
   & .description {
     display: flex;
+    margin: 10px 35px;
 
     @media screen and (max-width: 900px) {
       flex-direction: column-reverse;

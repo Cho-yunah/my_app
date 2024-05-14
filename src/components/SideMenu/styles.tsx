@@ -19,7 +19,7 @@ export const ListItem = styled.li`
   overflow: hidden;
   text-decoration: none;
   padding: 5px 0px;
-  margin: 5px;
+  // margin: 5px;
 `;
 
 export const MenuItem = styled.div`
