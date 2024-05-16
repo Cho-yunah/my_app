@@ -22,7 +22,6 @@ const ImageItem: FC<ImageItemProps> = ({ imageUrls}) => {
 
   const handleClick = useCallback((e: React.MouseEvent<HTMLImageElement>) => {
     const target = e.target as HTMLImageElement;
-    console.log(target)
     setShowContentsModal(true);
     // window.open(target.src);
   },[])

@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Article, Aside, Container, Content, ContentsHeader, SideHeader, SideList } from './style';
+import { Article, Aside, Container, Content, ContentsHeader, Overlay, SideHeader, SideList } from './style';
 import ArrowRight from '@assets/svg/ArrowRight';
 import MenuHamburger from '@assets/svg/MenuHamburger';
 import { Route, Routes } from 'react-router-dom';
@@ -17,8 +17,19 @@ import { MVP2_URLS } from 'src/constants';
 const Workspace = () => {
   const workCount = 5;
   const [isMobileSize, setIsMobileSize] = useState(window.innerWidth < 800);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const onLogout = () => {
     console.log('hhh');
+  };
+
+  const toggleMenu = () => {
+    if (!isMobileSize) return;
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   useEffect(() => {
@@ -35,7 +46,7 @@ const Workspace = () => {
 
   return (
     <Container id="workspace">
-      <Aside>
+      <Aside id="aside" className={isMenuOpen ? 'open' : ''}>
         <Link to="/workspace/intro">
           <SideHeader>
             <div className="name">Yuna Cho</div>
@@ -46,13 +57,14 @@ const Workspace = () => {
           </SideHeader>
         </Link>
         <SideList>
-          <SideMenu />
+          <SideMenu isMobileSize={isMobileSize} closeMenu={closeMenu} />
         </SideList>
       </Aside>
+      <Overlay className={isMenuOpen ? 'open' : ''} onClick={closeMenu} />
 
       <Content id="content">
         <ContentsHeader>
-          <div>{isMobileSize ? <MenuHamburger /> : <ArrowRight />}</div>
+          <div onClick={toggleMenu}>{isMobileSize ? <MenuHamburger /> : <ArrowRight />}</div>
         </ContentsHeader>
         <Article>
           <Routes>

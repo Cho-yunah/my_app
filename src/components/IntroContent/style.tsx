@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 
 export const MainDesc = styled.div`
   color: rgba(0, 0, 0, 0.6);
-  width: 70%;
-  margin-right: 10%;
+  width: 80%;
+  // margin-right: 10%;
   display: block;
 
   @media screen and (max-width: 900px) {
@@ -61,18 +61,18 @@ export const SubDesc = styled.ul`
 `;
 
 export const MainImageBox = styled.div`
-  width: 100%;
+  width: 90%;
   margin: 40px 30px;
   text-align: center;
 
-  & .img {
-    width: 58%;
+  & img {
+    max-width: 750px;
   }
 `;
 
 export const ImageContents = styled.div`
   text-align: center;
-  padding: 10px auto;
+  padding: 20px auto;
   width: 100%;
   max-width: 1020px;
   margin-bottom: 0;
@@ -91,9 +91,10 @@ export const ImageContents = styled.div`
 
 export const Images = styled.div`
   display: grid;
-  margin-top: 0;
-  margin-left: 40px;
-  padding: 45px 0;
+  margin: 20px auto;
+  padding: 15px;
+  // background-color: pink;
+  justify-items: center;
 
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 400px);

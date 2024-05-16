@@ -1,4 +1,5 @@
 import { breakPoints } from '@assets/styles/palette';
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
@@ -12,13 +13,38 @@ export const Aside = styled.aside`
   min-width: 320px;
   height: 100vh;
   flex-shrink: 0; /* 메뉴 리스트가 컨텐츠 영역을 밀어내지 못하도록 설정 */
+  // width: 50%;
   position: fixed;
   top: 0; /* 위쪽에 고정 */
+  left: 0; /* 왼쪽에 고정 */
   bottom: 0; /* 아래쪽에 고정 */
   overflow-y: auto; /* 세로 스크롤을 허용하여 내용이 넘칠 때 스크롤 표시 */
 
+  &.open {
+    transform: translateX(0);
+    z-index: 1000;
+  }
+
   @media screen and (max-width: ${breakPoints.mobile}px) {
-    display: none;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    width: 50%; /* 모바일에서 전체 너비로 확장 */
+  }
+`;
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+  transition: background 0.3s ease-in-out;
+
+  &.open {
+    display: block;
   }
 `;
 export const SideHeader = styled.section`
@@ -72,7 +98,6 @@ export const Content = styled.div`
   padding: 0px;
   margin-left: 340px;
   -webkit-font-smoothing: antialiased;
-  // background-color: pink;
   flex: 1;
   overflow-y: auto;
   backgroundd-color: #f9f9f9;
@@ -89,12 +114,34 @@ export const ContentsHeader = styled.header`
   position: fixed;
   width: 100%;
   z-index: 900;
-  // background-color: pink;
+  background-color: #fff;
+  cursor: pointer;
 
   & #back_svg,
   #gnb_svg {
     transform: rotate(180deg);
     margin: 10px 20px;
+  }
+`;
+
+const slideUpTitle = keyframes`
+  from {
+    transform: translateY(17px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
+const slideUp = keyframes`
+  from {
+    transform: translateY(13px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 `;
 
@@ -110,6 +157,7 @@ export const Article = styled.article`
     font-size: 40px;
     font-weight: 300;
     color: rgba(0, 0, 0, 0.8);
+    animation: ${slideUpTitle} 0.7s ease-out;
 
     @media screen and (max-width: ${breakPoints.mobile}px) {
       margin: 80px 30px 50px;
@@ -119,6 +167,8 @@ export const Article = styled.article`
   & .description {
     display: flex;
     margin: 10px 35px;
+    width: auto;
+    animation: ${slideUp} 0.5s ease-out;
 
     @media screen and (max-width: 900px) {
       flex-direction: column-reverse;

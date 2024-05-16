@@ -4,9 +4,6 @@ import { MVP2_URLS } from 'src/constants';
 import ImageItem from './ImageItem';
 import WaveText from '@components/common/WaveText';
 import Mvp2Modal from './Mvp2Modal';
-// import Modal from '@components/Modal';
-// import CreateMvpModal from './CreateMvpModal';
-// import Mvp2Modal from './Mvp2Modal';
 
 const ChekitMvp2 = () => {
   const url = 'https://mvp.chekit.link/v/intro';

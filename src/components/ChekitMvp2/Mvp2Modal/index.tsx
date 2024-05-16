@@ -1,7 +1,5 @@
 import React, { FC, useCallback } from 'react';
-import Modal from 'react-modal';
 import {  DescContainer, DescriptionText, ImageContainer, ModalContainer, ModalContent } from './styles';
-import styled from '@emotion/styled';
 import CreateModal from '@components/Modal';
 
 interface Props {
@@ -13,9 +11,6 @@ interface Props {
 
 
 const Mvp2Modal: FC<Props> = ({ show, onCloseModal ,imageUrls}) => {
-
-  console.log(show)
-
 
   return (
     <CreateModal  show={show} onCloseModal={onCloseModal}>

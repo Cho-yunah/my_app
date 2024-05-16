@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import {
   CurrentBar,
   ListItem,
@@ -10,7 +10,12 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { MENU_CONTENTS } from 'src/constants';
 
-const SideMenu = () => {
+interface SideMenuProps {
+    isMobileSize: boolean;
+    closeMenu: () => void;
+}
+
+const SideMenu:FC<SideMenuProps> = ({isMobileSize, closeMenu}) => {
   const workspace = useParams();
   const [currentWorkspace, setCurrentWorkspace] = useState('');
   // 각 리스트 아이템에 대한 rippleStyle을 별도로 관리하기 위해 배열로 상태를 관리합니다.
@@ -42,11 +47,14 @@ const SideMenu = () => {
       resetRippleStyles[index] = {};
       setRippleStyles(resetRippleStyles);
     }, 500); // 애니메이션 지속 시간
+
+    isMobileSize && closeMenu();  
   };
 
   const handleCurrentWorkspace = () => {
     setCurrentWorkspace(workspace['*'] ?? '');
   };
+
 
   useEffect(() => {
     handleCurrentWorkspace();
