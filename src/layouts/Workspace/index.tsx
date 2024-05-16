@@ -12,16 +12,12 @@ import IntroContent from '@components/IntroContent';
 import ChekitAdmin from '@components/ChekitAdmin';
 import ChekitPartners from '@components/ChekitPartners';
 import ChekitMvp2 from '@components/ChekitMvp2';
-import { MVP2_URLS } from 'src/constants';
+import ScrollToTop from '@utils/ScrollToTop';
 
 const Workspace = () => {
   const workCount = 5;
   const [isMobileSize, setIsMobileSize] = useState(window.innerWidth < 800);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const onLogout = () => {
-    console.log('hhh');
-  };
 
   const toggleMenu = () => {
     if (!isMobileSize) return;
@@ -46,6 +42,7 @@ const Workspace = () => {
 
   return (
     <Container id="workspace">
+      <ScrollToTop />
       <Aside id="aside" className={isMenuOpen ? 'open' : ''}>
         <Link to="/workspace/intro">
           <SideHeader>

@@ -27,7 +27,7 @@ export const Aside = styled.aside`
 
   @media screen and (max-width: ${breakPoints.mobile}px) {
     transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out;
     width: 50%; /* 모바일에서 전체 너비로 확장 */
   }
 `;
@@ -149,7 +149,7 @@ export const Article = styled.article`
   display: block;
   opacity: 1;
   transform: matrix(1, 0, 0, 1, 0, 0);
-  height: 100vh;
+  // height: 100vh;
 
   & .title {
     margin: 80px 30px;
