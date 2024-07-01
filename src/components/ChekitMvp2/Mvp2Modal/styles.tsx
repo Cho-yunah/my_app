@@ -20,11 +20,13 @@ export const ModalContent = styled.div`
 export const ImageContainer = styled.div`
   flex: 1;
   margin-right: 16px;
-  // background-color: skyblue;
+  background-color: skyblue;
+  justify-content: center;
+  text-align: center;
 
   & img {
-    width: 60%;
-    height: auto;
+    flex: 1;
+    max-width: 60%;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12);
   }
 `;

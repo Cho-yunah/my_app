@@ -1,22 +1,21 @@
 import { ImageContents, Images, MainDesc, MainImageBox, SubDesc } from '@components/IntroContent/style';
-import React, { useState } from 'react';
-import { MVP2_URLS } from 'src/constants';
+import React, { useCallback, useState } from 'react';
+import { MVP2_INFO } from 'src/constants';
 import ImageItem from './ImageItem';
 import WaveText from '@components/common/WaveText';
 import Mvp2Modal from './Mvp2Modal';
 
 const ChekitMvp2 = () => {
   const url = 'https://mvp.chekit.link/v/intro';
-
-  const onClickPageLink = () => {
-    window.open(url);
-  };
-
   const [showContentsModal, setShowContentsModal] = useState(false);
 
-  const onCloseModal = () => {
+  const onClickPageLink = useCallback(() => {
+    window.open(url);
+  },[url])
+
+  const onCloseModal = useCallback(() => {
     setShowContentsModal(false);
-  };
+  },[])
 
   return (
     <>
@@ -50,19 +49,21 @@ const ChekitMvp2 = () => {
             title="chekit Result Demo"
             className="iframe"
           ></iframe>
-          {/* 글자 효과 넣어주기 */}
           <WaveText text="Click the image below!" />
-          <ImageItem imageUrls={MVP2_URLS} />
+          <ImageItem imageUrls={MVP2_INFO} setShowContentsModal={setShowContentsModal} />
         </ImageContents>
       </div>
-      <Mvp2Modal
-        show={showContentsModal}
-        setShowContentsModal={setShowContentsModal}
-        onCloseModal={onCloseModal}
-        imageUrls={MVP2_URLS}
-      />
+    
     </>
   );
 };
 
 export default ChekitMvp2;
+
+
+// <Mvp2Modal
+// show={showContentsModal}
+// setShowContentsModal={setShowContentsModal}
+// onCloseModal={onCloseModal}
+// mvp2Info={MVP2_INFO}
+// />

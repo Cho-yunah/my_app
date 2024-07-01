@@ -7,7 +7,7 @@ export const MENU_CONTENTS = [
   { title: 'Subscript Product 제안서', tag: 'Proposal', to: 'proposal' },
 ];
 
-export const MVP2_URLS = [
+export const MVP2_INFO = [
   {
     name: 'mvp1',
     url: 'https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/chekit_cover.png?alt=media&token=a7abb798-a9da-43d1-9f13-d350eabd4614',

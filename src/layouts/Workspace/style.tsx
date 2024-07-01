@@ -13,7 +13,6 @@ export const Aside = styled.aside`
   min-width: 320px;
   height: 100vh;
   flex-shrink: 0; /* 메뉴 리스트가 컨텐츠 영역을 밀어내지 못하도록 설정 */
-  // width: 50%;
   position: fixed;
   top: 0; /* 위쪽에 고정 */
   left: 0; /* 왼쪽에 고정 */
@@ -90,18 +89,14 @@ export const SideList = styled.section`
 
 export const Content = styled.div`
   flex-direction: column;
-  // z-index: 10;
   color: #5e5e5e;
   max-width: 1100px;
-
-  // padding: 20px 50px 60px 50px;
   padding: 0px;
   margin-left: 340px;
   -webkit-font-smoothing: antialiased;
   flex: 1;
   overflow-y: auto;
   backgroundd-color: #f9f9f9;
-
   height: 100%;
 
   @media screen and (max-width: ${breakPoints.mobile}px) {
@@ -126,7 +121,7 @@ export const ContentsHeader = styled.header`
 
 const slideUpTitle = keyframes`
   from {
-    transform: translateY(17px);
+    transform: translateY(20px);
     opacity: 0;
   }
   to {
@@ -149,15 +144,14 @@ export const Article = styled.article`
   display: block;
   opacity: 1;
   transform: matrix(1, 0, 0, 1, 0, 0);
-  // height: 100vh;
 
   & .title {
-    margin: 80px 30px;
+    margin: 80px 30px 30px;
     padding: 20px 5px;
     font-size: 40px;
     font-weight: 300;
     color: rgba(0, 0, 0, 0.8);
-    animation: ${slideUpTitle} 0.7s ease-out;
+    animation: ${slideUpTitle} 0.5s ease-out;
 
     @media screen and (max-width: ${breakPoints.mobile}px) {
       margin: 80px 30px 50px;
@@ -166,7 +160,7 @@ export const Article = styled.article`
 
   & .description {
     display: flex;
-    margin: 10px 35px;
+    // margin: 10px 35px;
     width: auto;
     animation: ${slideUp} 0.5s ease-out;
 

@@ -8,17 +8,12 @@ type ImageItemProps ={
     url: string;
     name: string;
   }[];
-  // modalShow: boolean;
-  // setShowContentsModal: (flag: boolean) => void;
+  setShowContentsModal: (flag: boolean) => void;
 }
 
-const ImageItem: FC<ImageItemProps> = ({ imageUrls}) => {
+const ImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal }) => {
 
-  const [showContentsModal, setShowContentsModal] = useState(false);
-
-  const onCloseModal = () => {
-    setShowContentsModal(false);
-  };
+  // const [showContentsModal, setShowContentsModal] = useState(false);
 
   const handleClick = useCallback((e: React.MouseEvent<HTMLImageElement>) => {
     const target = e.target as HTMLImageElement;
@@ -33,12 +28,6 @@ const ImageItem: FC<ImageItemProps> = ({ imageUrls}) => {
         <img key={i.name} src={i.url} alt={i.name} onClick={handleClick}/>
         ))}
     </Images>
-    <Mvp2Modal
-        show={showContentsModal}
-        setShowContentsModal={setShowContentsModal}
-        onCloseModal={onCloseModal}
-        imageUrls={imageUrls}
-      />
     </>
   );
 };
