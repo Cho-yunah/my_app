@@ -6,25 +6,27 @@ interface Props {
   show: boolean;
   onCloseModal: () => void;
   setShowContentsModal: (flag: boolean) => void;
-  mvp2Info: { url: string; desc: string; subDesc: string;}[];
+  InfoArr: { url: string; desc: string; subDesc: string;}[];
 }
 
 
-const Mvp2Modal: FC<Props> = ({ show, onCloseModal ,mvp2Info}) => {
+const Mvp2Modal: FC<Props> = ({ show, onCloseModal ,InfoArr}) => {
+
 
   return (
-    <CreateModal  show={show} onCloseModal={onCloseModal}>
-        <ImageContainer>
-          <img src={mvp2Info[1].url} alt="Mobile Image" />
-        </ImageContainer>
-        {mvp2Info[1].subDesc && (
-          <DescContainer>
-            <DescriptionText>
-              {mvp2Info[1].subDesc}
-            </DescriptionText>
-          </DescContainer>
-        )}
-    </CreateModal>
+    // <CreateModal  show={show} onCloseModal={onCloseModal}>
+    //     {/* <ImageContainer>
+    //       <img src={InfoArr[5].url} alt="Mobile Image" />
+    //     </ImageContainer>
+    //     {InfoArr[5].subDesc && (
+    //       <DescContainer>
+    //         <DescriptionText>
+    //           {InfoArr[1].subDesc}
+    //         </DescriptionText>
+    //       </DescContainer>
+    //     )} */}
+    // </CreateModal>
+    <div></div>
   );
 };
 
