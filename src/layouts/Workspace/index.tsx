@@ -28,6 +28,10 @@ const Workspace = () => {
     setIsMenuOpen(false);
   };
 
+  const handleClick = () => {
+    closeMenu();
+  };
+  
   useEffect(() => {
     const handleResize = () => {
       setIsMobileSize(window.innerWidth < 800);
@@ -40,12 +44,13 @@ const Workspace = () => {
     };
   }, []);
 
+
   return (
     <Container id="workspace">
       <ScrollToTop />
       <Aside id="aside" className={isMenuOpen ? 'open' : ''}>
         <Link to="/workspace/intro">
-          <SideHeader>
+          <SideHeader onClick={handleClick}>
             <div className="name">Yuna Cho</div>
             <div className="desc">Frontend Engineer</div>
             <div className="workCount">

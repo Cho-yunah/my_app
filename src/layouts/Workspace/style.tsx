@@ -8,7 +8,7 @@ export const Container = styled.div`
 
 export const Aside = styled.aside`
   background-color: white;
-  z-index: 10;
+  z-index: 1000;
   width: 340px;
   min-width: 320px;
   height: 100vh;
@@ -167,5 +167,9 @@ export const Article = styled.article`
     @media screen and (max-width: 900px) {
       flex-direction: column-reverse;
     }
+  }
+
+  & .underline {
+    text-decoration: underline 0.7px;
   }
 `;

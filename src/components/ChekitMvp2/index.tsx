@@ -3,10 +3,11 @@ import React, { useCallback, useState } from 'react';
 import { MVP2_INFO } from 'src/constants';
 import ImageItem from './ImageItem';
 import WaveText from '@components/common/WaveText';
-import Mvp2Modal from './Mvp2Modal';
+import ImageModal from '../common/ImageModal';
 
 const ChekitMvp2 = () => {
-  const url = 'https://mvp.chekit.link/v/intro';
+  const url = 'https://www.chekit.kr/Register-and-check-the-kitresults';
+  const [clickedImage, setClickedImage] = useState({ url: '', desc: '' });
   const [showContentsModal, setShowContentsModal] = useState(false);
 
   const onClickPageLink = useCallback(() => {
@@ -21,7 +22,7 @@ const ChekitMvp2 = () => {
     <>
       <div>
         <div className="title">
-          <span className="title_inner">Chekit MVP 2</span>
+          <span className="title_inner">Chekit Main Service</span>
         </div>
         <div className="description">
           <MainDesc>
@@ -32,7 +33,7 @@ const ChekitMvp2 = () => {
               있도록 비즈니스 플로우를 구성하였습니다.
             </span>
             <br />
-            <p onClick={onClickPageLink}>Web Service Link</p>
+            <p onClick={onClickPageLink} className='underline'>Web Service Link</p>
           </MainDesc>
           <SubDesc>
             <li>Vue, Tailwind, pinia</li>
@@ -40,7 +41,7 @@ const ChekitMvp2 = () => {
           </SubDesc>
         </div>
         <MainImageBox>
-          <img src="https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/chekit_result.png?alt=media&token=353ba764-41ac-4ddf-8520-94ca36b0a9fa" />
+          <img width="680" src="https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/chekit_result.png?alt=media&token=353ba764-41ac-4ddf-8520-94ca36b0a9fa" />
         </MainImageBox>
         <ImageContents>
           <iframe
@@ -50,20 +51,22 @@ const ChekitMvp2 = () => {
             className="iframe"
           ></iframe>
           <WaveText text="Click the image below!" />
-          <ImageItem imageUrls={MVP2_INFO} setShowContentsModal={setShowContentsModal} />
+          <ImageItem 
+            setClickedImage={setClickedImage}
+            imageUrls={MVP2_INFO} 
+            setShowContentsModal={setShowContentsModal} 
+          />
         </ImageContents>
       </div>
-    
+
+      <ImageModal
+        show={showContentsModal}
+        setShowContentsModal={setShowContentsModal}
+        onCloseModal={onCloseModal}
+        InfoArr={clickedImage}
+      /> 
     </>
   );
 };
 
 export default ChekitMvp2;
-
-
-// <Mvp2Modal
-// show={showContentsModal}
-// setShowContentsModal={setShowContentsModal}
-// onCloseModal={onCloseModal}
-// mvp2Info={MVP2_INFO}
-// />
