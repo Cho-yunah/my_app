@@ -7,3 +7,7 @@
 .underline {
   text-decoration: underline;
 }
+
+.text-bold {
+  font-weight: 700;
+}

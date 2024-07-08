@@ -1,7 +1,7 @@
 import { ImageContents, Images, MainDesc, MainImageBox, SubDesc } from '@components/IntroContent/style';
 import React, { useCallback, useState } from 'react';
 import { MVP2_INFO } from 'src/constants';
-import ImageItem from './ImageItem';
+import ImageItem from '../common/ImageItem';
 import WaveText from '@components/common/WaveText';
 import ImageModal from '../common/ImageModal';
 
@@ -27,7 +27,7 @@ const ChekitMvp2 = () => {
         <div className="description">
           <MainDesc>
             <span>
-              해당 프로젝트는 현재 회사에서 제공되어지는 메인 서비스입니다. 이전에 만들었던 mvp 모델을 기반으로 하여,
+              해당 프로젝트는 현재 회사에서 제공되어지는 메인 서비스입니다. <br/>이전에 만들었던 mvp 모델을 기반으로 하여,
               사용자가 원하는 기능을 파악하고 기능을 추가했으며 동시에 고객 중심으로 UI/UX를 개선하였습니다. 이전 mvp
               에서 쌓은 데이터를 통해 개개인에 최적화된 결과를 제공하며, 사용자가 편리하게 추천된 상품을 구매까지 할 수
               있도록 비즈니스 플로우를 구성하였습니다.

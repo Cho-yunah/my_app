@@ -158,3 +158,12 @@ export const MVP1_INFO: InfoArrType[] = [
     subDesc: '체킷의 인트로 페이지 입니다.',
   },
 ]
+
+export const ADMIN_Info: InfoArrType[] = [
+  {
+    name: 'mvp_1',
+    url: 'https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/mvp1_intro.jpeg?alt=media&token=5fd626a3-7eed-4ef7-99fb-3ee70a4be4d1',
+    desc: 'Chekit Intro Page',
+    subDesc: '체킷의 인트로 페이지 입니다.',
+  },
+]

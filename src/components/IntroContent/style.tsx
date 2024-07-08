@@ -57,13 +57,13 @@ export const SubDesc = styled.ul`
   font-size: 14px;
   font-weight: 600;
   color: rgba(0, 0, 0, 0.6);
-  width: 42%;
+  width: 43%;
   list-style: none;
-  margin-top: -1px;
-  margin: 30px
-
+  margin: 40px 30px;
+  
+  
   @media screen and (max-width: 900px) {
-    margin-bottom: 50px;
+    margin: 20px 30px;
     width: auto;
     padding: 0px;
   }
@@ -73,6 +73,10 @@ export const SubDesc = styled.ul`
     font-weight: 500;
     margin-right: 5px;
     color: rgba(0, 0, 0, 0.4);
+  }
+
+  & .text-bold {
+    font-weight: 800;
   }
 `;
 

@@ -1,7 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ImageContents, MainDesc, MainImageBox, SubDesc } from '../IntroContent/style';
+import WaveText from '../common/WaveText';
+import ImageItem from '../common/ImageItem';
+import { ADMIN_Info } from '@/constants';
 
 const ChekitAdmin = () => {
-  return <div>ChekitAdmin</div>;
+  const [showContentsModal, setShowContentsModal] = useState(false);
+
+
+  return (
+    <div>
+      {/* 타이틀 및 설명 */}
+      <div className="title">
+        <span className="title_inner">Chekit Admin Renew</span>
+      </div>
+      <div className="description">
+        <MainDesc>
+          <span>
+            해당 프로젝트는 기존의 어드민(관리자) 페이지를 리뉴얼한 프로젝트입니다. <br/> 
+            기존에 사용하던 어드민이 서비스 별로 분리되어 있어서 서비스 별로 데이터를 확인하기 어렵고, 관리의 효율성이 떨어지는 문제점이 있었습니다.
+            이를 해결하기 위해 여러개로 나눠져있던 어드민들을 하나로 통합하고, 관리자가 원하는 정보를 빠르게 확인할 수 있도록 UI/UX를 개선하였습니다.
+            또 관리자의 필요를 반영하여 원하는 정보를 빠르게 확인할 수 있도록 필터링 기능과 검색 기능, 쿠폰 발급, 고객 관리 등의 기능을 추가였습니다.
+          </span>
+          <br />
+        </MainDesc>
+        <SubDesc>
+          <li>React, Styled-Component, Recoil</li>
+          <li>Team Project</li>
+          <li className='text-bold'>Frontend Solo</li>
+        </SubDesc>
+      </div>
+      <MainImageBox>
+          <img width="600" height="600" src="https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/mvp1.png?alt=media&token=1a01ea3e-bc20-4a3f-a7bd-9fcd8b9bdfce" />
+        </MainImageBox>
+        <ImageContents>
+          <WaveText text="Click the image below!" />
+          <ImageItem imageUrls={ADMIN_Info} setShowContentsModal={setShowContentsModal} />
+        </ImageContents>
+      
+    </div>
+  );
 };
 
 export default ChekitAdmin;

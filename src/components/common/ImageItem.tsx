@@ -7,7 +7,7 @@ type ImageItemProps ={
     name: string;
     desc?:string;
   }[];
-  setClickedImage: (flag: { url: string; desc: string }) => void;
+  setClickedImage?: (flag: { url: string; desc: string }) => void;
   setShowContentsModal: (flag: boolean) => void;
 }
 
@@ -16,7 +16,7 @@ const ImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClic
   const handleClick = useCallback((e: React.MouseEvent<HTMLImageElement>) => {
     const target = e.target as HTMLImageElement;
     console.log(target) 
-    setClickedImage({url: target.src, desc: target.alt })
+    setClickedImage && setClickedImage({url: target.src, desc: target.alt })
     setShowContentsModal(true);
   },[])
 
