@@ -20,7 +20,7 @@ export const ModalContent = styled.div`
 export const ImageContainer = styled.div`
   flex: 1;
   margin-right: 16px;
-  background-color: skyblue;
+  // background-color: skyblue;
   justify-content: center;
   text-align: center;
 

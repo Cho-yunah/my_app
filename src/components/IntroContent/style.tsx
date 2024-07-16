@@ -81,9 +81,13 @@ export const SubDesc = styled.ul`
 `;
 
 export const MainImageBox = styled.div`
-  width: 90%;
+  width: 100%;
   margin: 40px 30px;
   text-align: center;
+
+  &.shadow-box {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16);
+  }
 
   & img {
     max-width: 750px;
@@ -93,8 +97,8 @@ export const MainImageBox = styled.div`
 export const ImageContents = styled.div`
   text-align: center;
   padding: 20px auto;
-  width: 100%;
-  max-width: 1020px;
+  width: 100dvw;
+  max-width: 1120px;
   margin-bottom: 0;
   background-color: #f8f9fa;
 
@@ -131,3 +135,20 @@ export const Images = styled.div`
     box-shadow: 0px 0px 5px #dee2e6;
   }
 `;
+
+export const WebImages = styled.div`
+display: grid;
+margin: 20px auto;
+padding: 15px;
+justify-items: center;
+
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(2, 400px);
+grid-gap: 3px;
+
+& img {
+  max-width: 320px;
+  max-height: 280px;
+  box-shadow: 0px 0px 5px #dee2e6;
+}
+`

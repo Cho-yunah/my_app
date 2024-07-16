@@ -25,7 +25,9 @@ const ChekitMvp = () => {
         <SubDesc>
           <li>React, Styled-Component, Recoil</li>
           <li>Team Project</li>
-          <li>Frontend Solo</li>
+          {/* <li>Frontend Solo</li> */}
+          <li className='text-bold'>Frontend Solo</li>
+
         </SubDesc>
       </div>
       <MainImageBox>

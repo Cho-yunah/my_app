@@ -9,8 +9,8 @@ export const Container = styled.div`
 export const Aside = styled.aside`
   background-color: white;
   z-index: 1000;
-  width: 340px;
-  min-width: 320px;
+  width: 310px;
+  min-width: 310px;
   height: 100vh;
   flex-shrink: 0; /* 메뉴 리스트가 컨텐츠 영역을 밀어내지 못하도록 설정 */
   position: fixed;
@@ -90,13 +90,13 @@ export const SideList = styled.section`
 export const Content = styled.div`
   flex-direction: column;
   color: #5e5e5e;
-  max-width: 1100px;
   padding: 0px;
-  margin-left: 340px;
+  margin-left: 310px;
   -webkit-font-smoothing: antialiased;
   flex: 1;
   overflow-y: auto;
   backgroundd-color: #f9f9f9;
+  // background-color: pink;
   height: 100%;
 
   @media screen and (max-width: ${breakPoints.mobile}px) {
@@ -144,6 +144,8 @@ export const Article = styled.article`
   display: block;
   opacity: 1;
   transform: matrix(1, 0, 0, 1, 0, 0);
+  overflow-x: hidden;
+
 
   & .title {
     margin: 80px 30px 30px;

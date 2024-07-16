@@ -13,6 +13,9 @@ import ChekitAdmin from '@components/ChekitAdmin';
 import ChekitPartners from '@components/ChekitPartners';
 import ChekitMvp2 from '@components/ChekitMvp2';
 import ScrollToTop from '@utils/ScrollToTop';
+import { Scrollbars } from 'react-custom-scrollbars';
+import FloatingArrow from '@/components/common/FloatingArrow';
+
 
 const Workspace = () => {
   const workCount = 5;
@@ -49,6 +52,7 @@ const Workspace = () => {
     <Container id="workspace">
       <ScrollToTop />
       <Aside id="aside" className={isMenuOpen ? 'open' : ''}>
+      <Scrollbars autoHide  style={{ width:310, height: '100%' }}>
         <Link to="/workspace/intro">
           <SideHeader onClick={handleClick}>
             <div className="name">Yuna Cho</div>
@@ -61,10 +65,11 @@ const Workspace = () => {
         <SideList>
           <SideMenu isMobileSize={isMobileSize} closeMenu={closeMenu} />
         </SideList>
+      </Scrollbars>
       </Aside>
       <Overlay className={isMenuOpen ? 'open' : ''} onClick={closeMenu} />
 
-      <Content id="content">
+      <Content id="content" >
         <ContentsHeader>
           <div onClick={toggleMenu}>{isMobileSize ? <MenuHamburger /> : <ArrowRight />}</div>
         </ContentsHeader>
@@ -78,6 +83,8 @@ const Workspace = () => {
             <Route path="/intro" element={<IntroContent />} />
           </Routes>
         </Article>
+        <FloatingArrow />
+
       </Content>
     </Container>
   );

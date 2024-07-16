@@ -20,6 +20,7 @@
     "@types/react-router-dom": "^5.3.3",
     "gsap": "^3.12.5",
     "react": "^18.2.0",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
     "react-player": "^2.16.0",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@svgr/cli": "^8.1.0",
     "@types/react": "^18.2.56",
+    "@types/react-custom-scrollbars": "^4.0.13",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/parser": "^7.1.0",
     "@vitejs/plugin-react": "^4.2.1",
