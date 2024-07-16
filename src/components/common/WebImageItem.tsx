@@ -1,5 +1,6 @@
-import { Images } from '@components/IntroContent/style';
+// import { Images } from '@components/IntroContent/style';
 import React, { FC, useCallback, useState } from 'react';
+import { WebImages } from '../IntroContent/style';
 
 type ImageItemProps ={
   imageUrls: { 
@@ -11,7 +12,7 @@ type ImageItemProps ={
   setShowContentsModal: (flag: boolean) => void;
 }
 
-const ImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClickedImage }) => {
+const WebImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClickedImage }) => {
 
   const handleClick = useCallback((e: React.MouseEvent<HTMLImageElement>) => {
     const target = e.target as HTMLImageElement;
@@ -22,13 +23,13 @@ const ImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClic
 
   return (
     <>
-    <Images>
+    <WebImages>
       {imageUrls.map((i) => (
-        <img style={{aspectRatio: 3/5.2}} key={i.name} src={i.url} alt={i.desc} onClick={handleClick} id={i.name}/>
+        <img key={i.name} src={i.url} alt={i.desc} onClick={handleClick} id={i.name}/>
         ))}
-    </Images>
+    </WebImages>
     </>
   );
 };
 
-export default ImageItem;
+export default WebImageItem;

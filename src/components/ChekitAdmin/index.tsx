@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { ImageContents, MainDesc, MainImageBox, SubDesc } from '../IntroContent/style';
 import WaveText from '../common/WaveText';
-import ImageItem from '../common/ImageItem';
 import { ADMIN_Info } from '@/constants';
+import WebImageItem from '../common/WebImageItem';
 
 const ChekitAdmin = () => {
   const [showContentsModal, setShowContentsModal] = useState(false);
@@ -27,15 +27,17 @@ const ChekitAdmin = () => {
         <SubDesc>
           <li>React, Styled-Component, Recoil</li>
           <li>Team Project</li>
-          <li className='text-bold'>Frontend Solo</li>
         </SubDesc>
       </div>
-      <MainImageBox>
-          <img width="600" height="600" src="https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/mvp1.png?alt=media&token=1a01ea3e-bc20-4a3f-a7bd-9fcd8b9bdfce" />
+      <MainImageBox >
+          <img style={{boxShadow:'0 2px 5px 1px rgba(0, 0, 0, 0.12)'}} width="700" height="500" src="https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/admin_cover.png?alt=media&token=312c260f-91cf-4d0e-8040-e3654ebebbc0"/>
         </MainImageBox>
         <ImageContents>
           <WaveText text="Click the image below!" />
-          <ImageItem imageUrls={ADMIN_Info} setShowContentsModal={setShowContentsModal} />
+          <WebImageItem 
+            imageUrls={ADMIN_Info}
+            setShowContentsModal={setShowContentsModal} 
+          />
         </ImageContents>
       
     </div>
