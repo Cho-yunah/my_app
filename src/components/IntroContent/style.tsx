@@ -143,7 +143,7 @@ padding: 15px;
 justify-items: center;
 
 grid-template-columns: repeat(3, 1fr);
-grid-template-rows: repeat(2, 400px);
+grid-template-rows: repeat(2, 220px);
 grid-gap: 3px;
 
 & img {

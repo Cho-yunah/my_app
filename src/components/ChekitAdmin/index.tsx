@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ImageContents, MainDesc, MainImageBox, SubDesc } from '../IntroContent/style';
 import WaveText from '../common/WaveText';
-import { ADMIN_Info } from '@/constants';
+import { ADMIN_INFO } from '@/constants';
 import WebImageItem from '../common/WebImageItem';
 
 const ChekitAdmin = () => {
@@ -35,7 +35,7 @@ const ChekitAdmin = () => {
         <ImageContents>
           <WaveText text="Click the image below!" />
           <WebImageItem 
-            imageUrls={ADMIN_Info}
+            imageUrls={ADMIN_INFO}
             setShowContentsModal={setShowContentsModal} 
           />
         </ImageContents>
