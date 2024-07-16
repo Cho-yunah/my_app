@@ -92,6 +92,12 @@ export const MainImageBox = styled.div`
   & img {
     max-width: 750px;
   }
+
+  &.appImageBox {
+    img {
+      max-width: 920px;
+    }
+  }
 `;
 
 export const ImageContents = styled.div`
@@ -133,6 +139,11 @@ export const Images = styled.div`
     max-width: 194px;
     max-height: 400px;
     box-shadow: 0px 0px 5px #dee2e6;
+    aspect-ratio: 3/5.5;
+
+    &.app {
+      aspect-ratio: 3/6;
+    }
   }
 `;
 
@@ -143,12 +154,13 @@ padding: 15px;
 justify-items: center;
 
 grid-template-columns: repeat(3, 1fr);
-grid-template-rows: repeat(2, 220px);
+grid-template-rows: repeat(2, 240px);
 grid-gap: 3px;
 
 & img {
   max-width: 320px;
   max-height: 280px;
   box-shadow: 0px 0px 5px #dee2e6;
+  aspect-ratio: 5.2/3;
 }
 `

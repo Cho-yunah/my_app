@@ -9,9 +9,10 @@ type ImageItemProps ={
   }[];
   setClickedImage?: (flag: { url: string; desc: string }) => void;
   setShowContentsModal: (flag: boolean) => void;
+  isApp?: boolean;
 }
 
-const ImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClickedImage }) => {
+const ImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClickedImage, isApp }) => {
 
   const handleClick = useCallback((e: React.MouseEvent<HTMLImageElement>) => {
     const target = e.target as HTMLImageElement;
@@ -24,7 +25,7 @@ const ImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClic
     <>
     <Images>
       {imageUrls.map((i) => (
-        <img style={{aspectRatio: 3/5.2}} key={i.name} src={i.url} alt={i.desc} onClick={handleClick} id={i.name}/>
+        <img className={isApp? 'app': ''} key={i.name} src={i.url} alt={i.desc} onClick={handleClick} id={i.name}/>
         ))}
     </Images>
     </>
