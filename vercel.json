@@ -1,5 +1,5 @@
 {
   "rewrites":  [
-    {"source": "/(.*)", "destination": "/workspaces/intro"}
+    {"source": "/(.*)", "destination": "/workspaces"}
   ]
 }

@@ -53,7 +53,7 @@ const Workspace = () => {
       <ScrollToTop />
       <Aside id="aside" className={isMenuOpen ? 'open' : ''}>
       <Scrollbars autoHide  style={{ width:310, height: '100%' }}>
-        <Link to="/workspace/intro">
+        <Link to="/workspace">
           <SideHeader onClick={handleClick}>
             <div className="name">Yuna Cho</div>
             <div className="desc">Frontend Engineer</div>
@@ -80,7 +80,7 @@ const Workspace = () => {
             <Route path="/admin" element={<ChekitAdmin />} />
             <Route path="/partners" element={<ChekitPartners />} />
             <Route path="/app" element={<ChekitApp />} />
-            <Route path="/intro" element={<IntroContent />} />
+            <Route path="/" element={<IntroContent />} />
           </Routes>
         </Article>
         {/* <FloatingArrow /> */}
