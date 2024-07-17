@@ -1,6 +1,5 @@
 import React from 'react';
 import { MainDesc } from './style';
-// import { useParams } from 'react-router-dom';
 
 const IntroContent = () => {
   // const { workspace } = useParams();

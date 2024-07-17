@@ -7,7 +7,7 @@ const Workspace = loadable(() => import('@layouts/Workspace'));
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate replace to="/workspace/intro" />} />
+      <Route path="/" element={<Navigate  to="/workspace/intro" />} />
       <Route path="/workspace/*" element={<Workspace />} />
     </Routes>
   );
