@@ -1,6 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import {  DescContainer, DescriptionText, ImageContainer, ModalContainer, ModalContent } from './styles';
 import CreateModal from '@components/Modal';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 
 interface Props {
   show: boolean;
@@ -12,11 +14,10 @@ interface Props {
 
 const ImageModal: FC<Props> = ({ show, onCloseModal ,InfoArr}) => {
 
-  console.log(InfoArr)
   return (
     <CreateModal  show={show} onCloseModal={onCloseModal}>
         <ImageContainer>
-          <img src={InfoArr.url} alt="Mobile Image" />
+         <img src={InfoArr.url} alt="Mobile Image" />
         </ImageContainer>
         {InfoArr.subDesc && (
           <DescContainer>

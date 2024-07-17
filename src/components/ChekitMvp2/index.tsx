@@ -4,6 +4,9 @@ import { MVP2_INFO } from 'src/constants';
 import ImageItem from '../common/ImageItem';
 import WaveText from '@components/common/WaveText';
 import ImageModal from '../common/ImageModal';
+import ProgressiveImage from '../common/ProgressiveImage';
+import imageUrl from '@assets/images/chekit_result.png';
+
 
 const ChekitMvp2 = () => {
   const url = 'https://www.chekit.kr/Register-and-check-the-kitresults';
@@ -41,7 +44,7 @@ const ChekitMvp2 = () => {
           </SubDesc>
         </div>
         <MainImageBox>
-          <img width="680" src="https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/chekit_result.png?alt=media&token=353ba764-41ac-4ddf-8520-94ca36b0a9fa" />
+          <img width='680' src={imageUrl} />
         </MainImageBox>
         <ImageContents>
           <iframe

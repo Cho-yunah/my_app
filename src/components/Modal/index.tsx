@@ -16,7 +16,8 @@ const StyledModal = styled(Modal)`
   border: none;
   background-color: #f9f9f9;
   padding: 10px;
-  max-width: 80dvw;
+  min-width: 50dvw;
+  min-width: 60dvh;
   max-height: 85dvh;
   overflow-y: auto;
   border-radius: 12px;
