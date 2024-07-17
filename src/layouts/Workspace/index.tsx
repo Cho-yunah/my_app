@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Article, Aside, Container, Content, ContentsHeader, Overlay, SideHeader, SideList } from './style';
 import ArrowRight from '@assets/svg/ArrowRight';
 import MenuHamburger from '@assets/svg/MenuHamburger';
@@ -83,7 +83,7 @@ const Workspace = () => {
             <Route path="/intro" element={<IntroContent />} />
           </Routes>
         </Article>
-        <FloatingArrow />
+        {/* <FloatingArrow /> */}
 
       </Content>
     </Container>

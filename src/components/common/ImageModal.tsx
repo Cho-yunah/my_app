@@ -18,7 +18,7 @@ const ImageModal: FC<Props> = ({ show, onCloseModal ,InfoArr}) => {
         <ImageContainer>
           <img src={InfoArr.url} alt="Mobile Image" />
         </ImageContainer>
-        {InfoArr.desc && (
+        {InfoArr.subDesc && (
           <DescContainer>
             <DescriptionText>
               {InfoArr.desc}

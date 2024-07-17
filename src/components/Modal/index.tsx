@@ -11,16 +11,16 @@ interface ModalProps {
 
 const StyledModal = styled(Modal)`
   position: fixed;
-  top: 50%;
+  top: 52%;
   left: 50%;
   border: none;
   background-color: #f9f9f9;
   padding: 10px;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 80dvw;
+  max-height: 85dvh;
   overflow-y: auto;
   border-radius: 12px;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 1px 3px 6px 1px rgba(0, 0, 0, 0.18);
   transform: translate(-30%, -50%) scale(${props => props.isOpen ? '0' : '1'});
   transition: transform 0.5s ease-in-out; /* transform에 대한 애니메이션 */
 
