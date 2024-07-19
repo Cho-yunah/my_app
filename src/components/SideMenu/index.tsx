@@ -68,11 +68,11 @@ const SideMenu:FC<SideMenuProps> = ({isMobileSize, closeMenu}) => {
             <Link to={`/workspace/${item.to}`}>
               {currentWorkspace === item.to && <CurrentBar />}
               <MenuItem className={`${currentWorkspace === item.to ? 'active' : ''}`}>
-                <p>{item.title}</p>
+                <p className='title'>{item.title}</p>
                 <p className="tag">{item.tag}</p>
               </MenuItem>
-            </Link>
             <Ripple style={rippleStyles[index]}></Ripple>
+            </Link>
           </ListItem>
         );
       })}

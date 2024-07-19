@@ -1,16 +1,15 @@
-import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const CurrentBar = styled.div`
-  width: 3px;
+  width: 4px;
   position: absolute;
   margin-left: 0;
-  height: 80px;
+  height: 100%;
   background-color: #5c3ef1;
 `;
 export const MenuContainer = styled.ul`
   margin: 0px;
-  padding: 22px 0 40px 0;
+  padding: 0px 0 40px 0;
 `;
 
 export const ListItem = styled.li`
@@ -18,26 +17,30 @@ export const ListItem = styled.li`
   cursor: pointer;
   overflow: hidden;
   text-decoration: none;
-  padding: 5px 0px;
-  // margin: 5px;
 `;
-
-export const MenuItem = styled.div`
-  transition: 0.2s;
-  cursor: pointer;
-  color: rgba(51, 51, 51, 0.6);
-  height: 74px;
+    
+    export const MenuItem = styled.div`
+    transition: 0.2s;
+    cursor: pointer;
+    color: rgba(51, 51, 51, 0.6);
+    // height: 100%;
+    padding: 7px 0;
+    // border: 1px solid black;
 
   & p {
     padding: 0 38px;
-    adding-top: 17px;
     font-size: 15px;
     user-select: none;
-  }
-  & .tag {
-    font-size: 13px;
-    user-select: none;
-    text-transform: capitalize;
+
+    &.title {
+      margin-bottom: 0.6em;
+    }
+    
+    &.tag {
+      margin-top: 0.6em;
+        font-size: 13px;
+        user-select: none;
+      }
   }
 
   &.active {

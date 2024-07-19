@@ -18,6 +18,7 @@ export const Aside = styled.aside`
   left: 0; /* 왼쪽에 고정 */
   bottom: 0; /* 아래쪽에 고정 */
   overflow-y: auto; /* 세로 스크롤을 허용하여 내용이 넘칠 때 스크롤 표시 */
+  // background-color: pink;
 
   &.open {
     transform: translateX(0);
@@ -27,7 +28,7 @@ export const Aside = styled.aside`
   @media screen and (max-width: ${breakPoints.mobile}px) {
     transform: translateX(-100%);
     transition: transform 0.5s ease-in-out;
-    width: 50%; /* 모바일에서 전체 너비로 확장 */
+    // width: 50%; /* 모바일에서 전체 너비로 확장 */
   }
 `;
 
