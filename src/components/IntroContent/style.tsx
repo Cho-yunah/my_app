@@ -138,6 +138,7 @@ export const Images = styled.div`
   margin: 20px auto;
   padding: 15px;
   justify-items: center;
+  cursor: pointer;
 
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 400px);

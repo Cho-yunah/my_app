@@ -1,23 +1,37 @@
+import { breakPoints } from '@/assets/styles/palette';
 import styled from '@emotion/styled';
 
 export const ModalContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f9f9f9;
   margin: 0 auto;
-  padding: 10px;
   width: 100%;
   position: relative;
-`;
-
-export const ModalContent = styled.div`
+  `;
+  
+  export const ModalContent = styled.div`
   display: flex;
+  justify-content: center;
+  // align-items: center;
   flex-direction: row;
   padding: 16px;
-`;
-
-export const ImageContainer = styled.div`
+  width: 50dvw;
+  height: 78dvh; 
+  max-width: 710px; 
+  max-height: 700px;
+  
+  & img {
+    width: 80%;
+  }
+  
+  @media screen and (max-width: ${breakPoints.mobile}px) {
+    width: 100dvw;
+    height: 60dvh;
+  }
+  `;
+  
+  export const ImageContainer = styled.div`
   flex: 1;
   margin-right: 16px;
   // background-color: skyblue;
@@ -46,4 +60,6 @@ export const CloseModalButton = styled.button`
   border: none;
   font-size: 30px;
   cursor: pointer;
+  z-index: 100;
+
 `;

@@ -30,7 +30,7 @@ export const ImageContainer = styled.div`
   margin-right: 16px;
   justify-content: center;
   text-align: center;
-
+  
   & img {
     // background-color: pink;
     flex: 1;

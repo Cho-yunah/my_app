@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { ImageContents, MainDesc, MainImageBox, SubDesc } from '@components/IntroContent/style';
 import WaveText from '../common/WaveText';
 import ImageItem from '../common/ImageItem';
 import { MVP1_INFO } from '@/constants';
 import mainImageUrl from '@assets/images/mvp1_main.png';
+import ImageModal from '../common/ImageModal';
 
 const ChekitMvp = () => {
+  const [clickedImage, setClickedImage] = useState({ url: '', desc: '' });
   const [showContentsModal, setShowContentsModal] = useState(false);
+  const onCloseModal = useCallback(() => {
+    setShowContentsModal(false);
+  },[])
 
   return (
+    <>
     <div>
       {/* 타이틀 및 설명 */}
       <div className="title">
@@ -36,10 +42,17 @@ const ChekitMvp = () => {
         </MainImageBox>
         <ImageContents>
           <WaveText text="Click the image below!" />
-          <ImageItem imageUrls={MVP1_INFO} setShowContentsModal={setShowContentsModal} />
+          <ImageItem imageUrls={MVP1_INFO} setShowContentsModal={setShowContentsModal} setClickedImage={setClickedImage}/>
         </ImageContents>
-      
     </div>
+
+    <ImageModal
+        show={showContentsModal}
+        setShowContentsModal={setShowContentsModal}
+        onCloseModal={onCloseModal}
+        InfoArr={clickedImage}
+      /> 
+    </>
   );
 };
 
