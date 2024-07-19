@@ -7,7 +7,7 @@ const Workspace = loadable(() => import('@layouts/Workspace'));
 const App = () => {
   return (
     <Routes>
-      {/* <Route path="/workspace" element={<Workspace />} /> */}
+      <Route path="/workspace" element={<Workspace />} />
       <Route path="/workspace/*" element={<Workspace />} />
       <Route path="/*" element={<Workspace/>} />
     </Routes>

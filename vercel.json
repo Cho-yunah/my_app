@@ -1,7 +1,9 @@
 {
   "rewrites":  [
     {"source": "/", "destination": "/workspace"},
-    {"source": "/workspace/mvp2", "destination": "/workspace/mvp2"}
+    {"source": "/workspace", "destination": "/workspace"},
+    {"source": "/workspace/mvp2", "destination": "https://yuna-library.vercel.app/workspace"},
+    {"source": "/workspace/mvp", "destination": "https://yuna-library.vercel.app/workspace/mvp"}
 
 
   ]
