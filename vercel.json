@@ -1,8 +1,5 @@
 {
   "rewrites":  [
-    {"source": "/", "destination": "/workspace"},
-    {"source": "/workspace", "destination": "/workspace"},  
-    {"source": "/workspace/:path*", "destination": "/workspace/:path*"}
-
+    {"source": "/", "destination": "/"}
   ]
 }

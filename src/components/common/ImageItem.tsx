@@ -39,8 +39,9 @@ const ImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClic
     <Images>
 
 
-      {imageUrls.map((i) => (
+      {imageUrls.map((i, index) => (
            <LazyLoadImage
+           key={i.name+index}
             useIntersectionObserver={true}	
             src={i.url} // use normal <img> attributes as props
             effect="blur"      

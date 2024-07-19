@@ -6,7 +6,7 @@ import {
   MenuItem,
   Ripple,
 } from './styles';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { MENU_CONTENTS } from 'src/constants';
 
@@ -16,7 +16,12 @@ interface SideMenuProps {
 }
 
 const SideMenu:FC<SideMenuProps> = ({isMobileSize, closeMenu}) => {
-  const workspace = useParams();
+  const {pathname} = useLocation();
+
+  useEffect(() => {    
+    setCurrentWorkspace(pathname.split('/')[1]);
+  },[pathname])
+  
   const [currentWorkspace, setCurrentWorkspace] = useState('');
   // 각 리스트 아이템에 대한 rippleStyle을 별도로 관리하기 위해 배열로 상태를 관리합니다.
   const [rippleStyles, setRippleStyles] = useState(Array(3).fill({}));
@@ -49,23 +54,14 @@ const SideMenu:FC<SideMenuProps> = ({isMobileSize, closeMenu}) => {
     }, 500); // 애니메이션 지속 시간
 
     isMobileSize && closeMenu();  
-  };
-
-  const handleCurrentWorkspace = () => {
-    setCurrentWorkspace(workspace['*'] ?? '');
-  };
-
-
-  useEffect(() => {
-    handleCurrentWorkspace();
-  }, [workspace]);
+  };  
 
   return (
     <MenuContainer>
       {MENU_CONTENTS.map((item, index) => {
         return (
-          <ListItem key={item.title + index} onClick={(e) => handleClick({ index, e })}>
-            <Link to={`/workspace/${item.to}`}>
+          <ListItem key={item.title + index} onClick={(e) => handleClick({ index, e})}>
+            <Link to={`/${item.to}`}>
               {currentWorkspace === item.to && <CurrentBar />}
               <MenuItem className={`${currentWorkspace === item.to ? 'active' : ''}`}>
                 <p className='title'>{item.title}</p>
