@@ -1,11 +1,5 @@
 {
   "rewrites":  [
     {"source": "/(.*)", "destination": "/workspace"}
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/workspace"
-    }
   ]
 }
