@@ -3,6 +3,8 @@ import { ImageContents, MainDesc, MainImageBox, SubDesc } from '../IntroContent/
 import WaveText from '../common/WaveText';
 import { PARTNERS_ADMIN, PARTNERS_CUSTOMER } from '@/constants';
 import WebImageItem from '../common/WebImageItem';
+import ImageModal from '../common/ImageModal';
+import imageUrl from '@assets/images/partners_main.png';
 
 const ChekitPartners = () => {
   const [showContentsModal, setShowContentsModal] = useState(false);
@@ -30,7 +32,7 @@ const ChekitPartners = () => {
         </SubDesc>
       </div>
       <MainImageBox >
-          <img style={{boxShadow:'0 2px 5px 1px rgba(0, 0, 0, 0.12)'}} width="800" height="430" src='https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/partners_main.png?alt=media&token=5d08ef87-e782-40fb-ab0a-9ec03501886d' alt='파트너스 이미지' /> 
+          <img style={{boxShadow:'0 2px 5px 1px rgba(0, 0, 0, 0.12)', aspectRatio: 5/3}} src={imageUrl} alt='파트너스 이미지' /> 
       </MainImageBox>
         <ImageContents>
           <WaveText text="Click the image below!" />

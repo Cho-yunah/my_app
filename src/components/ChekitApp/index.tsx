@@ -4,6 +4,7 @@ import { APP_INFO, MVP2_INFO } from 'src/constants';
 import ImageItem from '../common/ImageItem';
 import WaveText from '@components/common/WaveText';
 import ImageModal from '../common/ImageModal';
+import imageUrl from '@assets/images/app_main.png';
 
 const ChekitApp = () => {
   const url = 'https://www.chekit.kr/Register-and-check-the-kitresults';
@@ -43,8 +44,8 @@ const ChekitApp = () => {
           </SubDesc>
         </div>
         <MainImageBox className='appImageBox'>
-          <img width="100%" src="https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/app_main1.png?alt=media&token=ebbe9f59-2559-4cd2-884b-12b80e2900b0" />
-          <img width="100%" src="https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/app_info.jpg?alt=media&token=8d14096e-c2a8-4586-accf-0fce4a3c3ab5" />
+          <img style={{ aspectRatio: 5/3 }} src={imageUrl}/>
+          <img style={{ aspectRatio: 5/3 }} src="https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/app_info.jpg?alt=media&token=8d14096e-c2a8-4586-accf-0fce4a3c3ab5" />
         </MainImageBox>
         <ImageContents>
           <WaveText text="Click the image below!" />

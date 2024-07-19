@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import loadable from '@loadable/component';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import {Route, Routes } from 'react-router-dom';
 import { Article, Aside, Container, Content, ContentsHeader, Overlay, SideHeader, SideList } from '../Workspace/style';
 import ScrollToTop from '@/utils/ScrollToTop';
 import Scrollbars from 'react-custom-scrollbars';
@@ -34,7 +34,8 @@ const App = () => {
   const handleClick = () => {
     closeMenu();
   };
-  
+
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobileSize(window.innerWidth < 800);

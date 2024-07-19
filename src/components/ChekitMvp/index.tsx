@@ -3,6 +3,7 @@ import { ImageContents, MainDesc, MainImageBox, SubDesc } from '@components/Intr
 import WaveText from '../common/WaveText';
 import ImageItem from '../common/ImageItem';
 import { MVP1_INFO } from '@/constants';
+import mainImageUrl from '@assets/images/mvp1_main.png';
 
 const ChekitMvp = () => {
   const [showContentsModal, setShowContentsModal] = useState(false);
@@ -31,7 +32,7 @@ const ChekitMvp = () => {
         </SubDesc>
       </div>
       <MainImageBox>
-          <img width="600" height="600" src="https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/mvp1.png?alt=media&token=1a01ea3e-bc20-4a3f-a7bd-9fcd8b9bdfce" />
+          <img width="600" height="600" src={mainImageUrl} />
         </MainImageBox>
         <ImageContents>
           <WaveText text="Click the image below!" />

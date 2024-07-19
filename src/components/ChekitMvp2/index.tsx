@@ -4,8 +4,7 @@ import { MVP2_INFO } from 'src/constants';
 import ImageItem from '../common/ImageItem';
 import WaveText from '@components/common/WaveText';
 import ImageModal from '../common/ImageModal';
-import ProgressiveImage from '../common/ProgressiveImage';
-import imageUrl from '@assets/images/chekit_result.png';
+import imageUrl from '@assets/images/mvp2_main.png';
 
 
 const ChekitMvp2 = () => {
@@ -44,7 +43,7 @@ const ChekitMvp2 = () => {
           </SubDesc>
         </div>
         <MainImageBox>
-          <img width='680' src={imageUrl} />
+          <img src={imageUrl} alt='chekit main image' />
         </MainImageBox>
         <ImageContents>
           <iframe

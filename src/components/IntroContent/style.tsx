@@ -28,11 +28,11 @@ export const MainDesc = styled.div`
     padding: 5px;
 
     @media screen and (max-width: ${breakPoints.mobile}px) {
-      margin-top: 60px;
+      margin-top: 50px;
     }
   }
 
-  & .rise_up {
+  & .riseUp {
     color: #212529;
     animation: ${slideUp} 1s ease-out;
   }
@@ -49,6 +49,12 @@ export const MainDesc = styled.div`
     & a {
       font-size: 15px;
       color: #222;
+    }
+  }
+
+  .mobileNone {
+    @media screen and (max-width: ${breakPoints.mobile}px) {
+      display: none;
     }
   }
 `;
@@ -81,9 +87,15 @@ export const SubDesc = styled.ul`
 `;
 
 export const MainImageBox = styled.div`
-  width: 100%;
   margin: 40px 30px;
   text-align: center;
+  
+  @media screen and (max-width: ${breakPoints.mobile}px) {
+    margin: 20px auto;
+    img {
+      width: 90vw;
+    }
+  }
 
   &.shadow-box {
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16);
@@ -91,7 +103,9 @@ export const MainImageBox = styled.div`
 
   & img {
     max-width: 750px;
+    min-width: 300px;  
   }
+  
 
   &.appImageBox {
     img {
@@ -103,7 +117,7 @@ export const MainImageBox = styled.div`
 export const ImageContents = styled.div`
   text-align: center;
   padding: 20px auto;
-  width: 100dvw;
+  width: 100%;
   max-width: 1120px;
   margin-bottom: 0;
   background-color: #f8f9fa;
@@ -131,8 +145,14 @@ export const Images = styled.div`
 
   @media screen and (max-width: 1300px) {
     margin-left: 0px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 260px);
     grid-template-rows: repeat(4, 390px);
+  }
+
+  @media screen and (max-width: ${breakPoints.mobile}px) {
+    margin-left: 0px;
+    grid-template-columns: repeat(2, 1fr);
+    // grid-template-rows: repeat(4, 390px);
   }
 
   & img {

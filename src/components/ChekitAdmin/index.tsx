@@ -3,6 +3,7 @@ import { ImageContents, MainDesc, MainImageBox, SubDesc } from '../IntroContent/
 import WaveText from '../common/WaveText';
 import { ADMIN_INFO } from '@/constants';
 import WebImageItem from '../common/WebImageItem';
+import imageUrl from '@assets/images/admin_main.png';
 
 const ChekitAdmin = () => {
   const [showContentsModal, setShowContentsModal] = useState(false);
@@ -30,7 +31,7 @@ const ChekitAdmin = () => {
         </SubDesc>
       </div>
       <MainImageBox >
-          <img style={{boxShadow:'0 2px 5px 1px rgba(0, 0, 0, 0.12)'}} width="700" height="500" src="https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/admin_cover.png?alt=media&token=312c260f-91cf-4d0e-8040-e3654ebebbc0"/>
+          <img style={{boxShadow:'0 2px 5px 1px rgba(0, 0, 0, 0.12)', aspectRatio: 5/3.4}} src={imageUrl} />
         </MainImageBox>
         <ImageContents>
           <WaveText text="Click the image below!" />

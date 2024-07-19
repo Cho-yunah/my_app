@@ -2,15 +2,14 @@ import React from 'react';
 import { MainDesc } from './style';
 
 const IntroContent = () => {
-  // const { workspace } = useParams();
 
   return (
     <div>
       <div className="title">
-        <span className="title_inner rise_up">Hello</span>
+        <span className="title_inner riseUp">Hello</span>
       </div>
       <MainDesc>
-        <p className='rise_up'>
+        <p className='riseUp'>
         프론트엔드 개발자 조윤아 입니다.
         <br />
         프로젝트의 기획부터 실행까지 적극적으로 참여하며, 팀원들과 원활한 커뮤니케이션을 통해 목표 달성을 위해 협력합니다. 
@@ -20,7 +19,7 @@ const IntroContent = () => {
         지속적인 성장을 추구하며 피드백을 환영하고, 회사의 목표에 의미 있게 기여할 수 있는 개발자가 되고자 합니다.
         </p>
         <br />
-        <p className='En rise_up'>
+        <p className='En riseUp'>
         Yuna&apos;s expertise is focused on front-end development. She Work with team members to solve problems to create products and focus on customer satisfaction.
         She is actively involved in project planning and execution and always strives to improve the user experience. 
         As she pursues continued growth, she welcomes feedback and looks for opportunities to meaningfully contribute to the company's goals.
@@ -31,7 +30,7 @@ const IntroContent = () => {
             <a href="mailto:favoryun12@gmail.com">favoryun12@gmail.com</a>
           </li>
         </ul>
-        You can use left and right arrow key to navigate the page of works.{' ← →'}
+        {/* <p className='mobileNone'>You can use left and right arrow key to navigate the page of works.{' ← →'}</p> */}
       </MainDesc>
     </div>
   );
