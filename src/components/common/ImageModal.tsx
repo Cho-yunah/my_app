@@ -1,23 +1,30 @@
-import React, { FC, useEffect, useState } from 'react';
-import {  DescContainer, DescriptionText, ImageContainer, ModalContainer, ModalContent } from './styles';
+import React, { FC } from 'react';
+import {  DescContainer, DescriptionText, ImageContainer } from './styles';
 import CreateModal from '@components/Modal';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 interface Props {
   show: boolean;
+  selectedImgNum: number;
   onCloseModal: () => void;
   setShowContentsModal: (flag: boolean) => void;
   InfoArr: { url: string; desc: string; subDesc?: string;};
+  imageUrlArr: { url: string; desc: string; subDesc?: string;}[];
+  isMobile?: string;
 }
 
 
-const ImageModal: FC<Props> = ({ show, onCloseModal ,InfoArr}) => {
+const ImageModal: FC<Props> = ({ show, onCloseModal ,InfoArr, imageUrlArr, selectedImgNum, isMobile}) => {
 
   return (
     <CreateModal  show={show} onCloseModal={onCloseModal}>
         <ImageContainer>
-         <img src={InfoArr.url} alt="Mobile Image" />
+          <Carousel selectedItem={selectedImgNum}>
+            {imageUrlArr.map((item, index) => <img key={index} src={item.url} alt="Mobile Image" className={isMobile} />)}
+            {/* <img src={InfoArr.url} alt="Mobile Image" /> */}
+          </Carousel>
         </ImageContainer>
         {InfoArr.subDesc && (
           <DescContainer>

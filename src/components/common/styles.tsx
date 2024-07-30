@@ -14,9 +14,7 @@ export const ModalContainer = styled.div`
   background-color: #f9f9f9;
   margin: 0 auto;
   padding: 10px;
-  width: 90%;
   position: relative;
-  // background-color: skyblue;
 `;
 
 export const ModalContent = styled.div`
@@ -28,14 +26,17 @@ export const ModalContent = styled.div`
 export const ImageContainer = styled.div`
   flex: 1;
   margin-right: 16px;
+  padding: 20px;
   justify-content: center;
   text-align: center;
   
   & img {
-    // background-color: pink;
     flex: 1;
-    max-width: 52%;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12);
+
+    &.mobile {
+      max-width: 49%;
+    }
   }
 `;
 

@@ -3,11 +3,12 @@ import { ImageContents, MainDesc, MainImageBox, SubDesc } from '@components/Intr
 import WaveText from '../common/WaveText';
 import ImageItem from '../common/ImageItem';
 import { MVP1_INFO } from '@/constants';
-import mainImageUrl from '@assets/images/mvp1_main.png';
+import imageUrl from '../../../public/images/mvp1_main.png';
 import ImageModal from '../common/ImageModal';
 
 const ChekitMvp = () => {
   const [clickedImage, setClickedImage] = useState({ url: '', desc: '' });
+  const [selectedImgNum, setSelectedImgNum] = useState(0);
   const [showContentsModal, setShowContentsModal] = useState(false);
   const onCloseModal = useCallback(() => {
     setShowContentsModal(false);
@@ -38,19 +39,27 @@ const ChekitMvp = () => {
         </SubDesc>
       </div>
       <MainImageBox>
-          <img width="600" height="600" src={mainImageUrl} />
+          <img width="600" height="600" src={imageUrl} />
         </MainImageBox>
         <ImageContents>
           <WaveText text="Click the image below!" />
-          <ImageItem imageUrls={MVP1_INFO} setShowContentsModal={setShowContentsModal} setClickedImage={setClickedImage}/>
-        </ImageContents>
+            <ImageItem 
+              imageUrls={MVP1_INFO} 
+              setClickedImage={setClickedImage}
+              setShowContentsModal={setShowContentsModal} 
+              setSelectedImgNum={setSelectedImgNum}
+            />
+          </ImageContents>
     </div>
 
     <ImageModal
         show={showContentsModal}
+        selectedImgNum={selectedImgNum}
         setShowContentsModal={setShowContentsModal}
         onCloseModal={onCloseModal}
         InfoArr={clickedImage}
+        imageUrlArr={MVP1_INFO}
+        isMobile='mobile'
       /> 
     </>
   );

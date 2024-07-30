@@ -4,12 +4,13 @@ import { MVP2_INFO } from 'src/constants';
 import ImageItem from '../common/ImageItem';
 import WaveText from '@components/common/WaveText';
 import ImageModal from '../common/ImageModal';
-import imageUrl from '@assets/images/mvp2_main.png';
+import imageUrl from '../../../public/images/mvp2_main.png';
 
 
 const ChekitMvp2 = () => {
   const url = 'https://www.chekit.kr/Register-and-check-the-kitresults';
   const [clickedImage, setClickedImage] = useState({ url: '', desc: '' });
+  const [selectedImgNum, setSelectedImgNum] = useState(0);
   const [showContentsModal, setShowContentsModal] = useState(false);
 
   const onClickPageLink = useCallback(() => {
@@ -54,18 +55,22 @@ const ChekitMvp2 = () => {
           ></iframe>
           <WaveText text="Click the image below!" />
           <ImageItem 
-            setClickedImage={setClickedImage}
             imageUrls={MVP2_INFO} 
+            setClickedImage={setClickedImage}
             setShowContentsModal={setShowContentsModal} 
+            setSelectedImgNum={setSelectedImgNum}
           />
         </ImageContents>
       </div>
 
       <ImageModal
         show={showContentsModal}
+        selectedImgNum={selectedImgNum}
         setShowContentsModal={setShowContentsModal}
         onCloseModal={onCloseModal}
         InfoArr={clickedImage}
+        imageUrlArr={MVP2_INFO}
+        isMobile='mobile'
       /> 
     </>
   );

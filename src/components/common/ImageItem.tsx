@@ -4,10 +4,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
-
-
-
-
 type ImageItemProps ={
   imageUrls: { 
     url: string;
@@ -16,10 +12,12 @@ type ImageItemProps ={
   }[];
   setClickedImage?: (flag: { url: string; desc: string }) => void;
   setShowContentsModal: (flag: boolean) => void;
+  setSelectedImgNum: (num: number) => void;
   isApp?: boolean;
+  contentsName?: string;
 }
 
-const ImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClickedImage, isApp }) => {
+const ImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClickedImage, setSelectedImgNum, isApp, contentsName }) => {
   const [isOnLoad, setIsOnLoad] = useState(false);
 
   useEffect(() => {
@@ -28,9 +26,9 @@ const ImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClic
     }, 1000);
   },[])
 
-  const handleClick = useCallback((e: React.MouseEvent<HTMLImageElement>) => {
+  const handleClick = useCallback((e: React.MouseEvent<HTMLImageElement>, index:number) => {
     const target = e.target as HTMLImageElement;
-    console.log(target) 
+    setSelectedImgNum(index);
     setClickedImage && setClickedImage({url: target.src, desc: target.alt })
     setShowContentsModal(true);
   },[])
@@ -41,16 +39,15 @@ const ImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClic
           <LazyLoadImage
             key={i.name+index}
             useIntersectionObserver={true}	
-            src={i.url} // use normal <img> attributes as props
+            src={i.url} 
             effect="blur"      
             wrapperProps={{
               style: {transitionDelay: "0.3s"},
             }}   
             alt={i.desc}
             width={194} 
-            height={356}
-            onClick={handleClick}
-          />
+            height={contentsName=='mvp1'? 354 : 374}
+            onClick={(e) => handleClick(e, index)}          />
         ))}
     </Images>
   );

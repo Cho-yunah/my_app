@@ -1,5 +1,4 @@
-// import { Images } from '@components/IntroContent/style';
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useCallback } from 'react';
 import { WebImages } from '../IntroContent/style';
 
 type ImageItemProps ={
@@ -10,13 +9,15 @@ type ImageItemProps ={
   }[];
   setClickedImage?: (flag: { url: string; desc: string }) => void;
   setShowContentsModal: (flag: boolean) => void;
+  setSelectedImgNum: (num: number) => void;
 }
 
-const WebImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClickedImage }) => {
+const WebImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClickedImage, setSelectedImgNum }) => {
 
-  const handleClick = useCallback((e: React.MouseEvent<HTMLImageElement>) => {
+  const handleClick = useCallback((e: React.MouseEvent<HTMLImageElement>, index:number) => {
     const target = e.target as HTMLImageElement;
-    console.log(target) 
+    // console.log(target) 
+    setSelectedImgNum(index);
     setClickedImage && setClickedImage({url: target.src, desc: target.alt })
     setShowContentsModal(true);
   },[])
@@ -24,8 +25,8 @@ const WebImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setC
   return (
     <>
     <WebImages>
-      {imageUrls.map((i) => (
-        <img key={i.name} src={i.url} alt={i.desc} onClick={handleClick} id={i.name}/>
+        {imageUrls.map((i,index) => (
+          <img key={i.name} src={i.url} alt={i.desc} onClick={(e) => handleClick(e, index)} id={i.name}/>
         ))}
     </WebImages>
     </>

@@ -183,5 +183,6 @@ grid-gap: 3px;
   max-height: 280px;
   box-shadow: 0px 0px 5px #dee2e6;
   aspect-ratio: 5.2/3;
+  cursor: pointer;
 }
 `

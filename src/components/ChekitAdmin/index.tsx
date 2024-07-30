@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { ImageContents, MainDesc, MainImageBox, SubDesc } from '../IntroContent/style';
 import WaveText from '../common/WaveText';
 import { ADMIN_INFO } from '@/constants';
@@ -8,10 +8,15 @@ import ImageModal from '../common/ImageModal';
 
 const ChekitAdmin = () => {
   const [clickedImage, setClickedImage] = useState({ url: '', desc: '' });
+  const [selectedImgNum, setSelectedImgNum] = useState(0);
   const [showContentsModal, setShowContentsModal] = useState(false);
   const onCloseModal = useCallback(() => {
     setShowContentsModal(false);
   },[])
+
+  useEffect(() => {
+    console.log('캐러셀 넘버', selectedImgNum)
+  },[selectedImgNum])
 
   return (
     <>
@@ -44,14 +49,17 @@ const ChekitAdmin = () => {
             imageUrls={ADMIN_INFO}
             setShowContentsModal={setShowContentsModal} 
             setClickedImage={setClickedImage}
+            setSelectedImgNum={setSelectedImgNum}
           />
         </ImageContents>
     </div>
     <ImageModal
         show={showContentsModal}
+        selectedImgNum={selectedImgNum}
         setShowContentsModal={setShowContentsModal}
         onCloseModal={onCloseModal}
         InfoArr={clickedImage}
+        imageUrlArr={ADMIN_INFO}
       /> 
     </>
   );

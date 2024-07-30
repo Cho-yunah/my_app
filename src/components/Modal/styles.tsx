@@ -17,9 +17,9 @@ export const ModalContainer = styled.div`
   flex-direction: row;
   padding: 16px;
   width: 50dvw;
-  height: 78dvh; 
+  height: 83dvh; 
   max-width: 710px; 
-  max-height: 700px;
+  max-height: 730px;
   
   & img {
     width: 80%;
@@ -54,12 +54,12 @@ export const DescriptionText = styled.p`
 
 export const CloseModalButton = styled.button`
   position: absolute;
-  right: 10px;
-  top: 6px;
+  right: 1px;
+  top: 2px;
   background: transparent;
   border: none;
   font-size: 30px;
   cursor: pointer;
   z-index: 100;
-
+  padding: 10px 15px;
 `;

@@ -23,9 +23,9 @@ ReactModal.setAppElement('#root');
 
 ReactDOM.createRoot(rootNode as Element | DocumentFragment).render(
   <BrowserRouter>
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
       <App />
-    </React.StrictMode>,
+    {/* </React.StrictMode>, */}
   </BrowserRouter>
 
 );

@@ -174,5 +174,6 @@ export const Article = styled.article`
 
   & .underline {
     text-decoration: underline 0.7px;
+    cursor: pointer;
   }
 `;
