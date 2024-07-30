@@ -20,13 +20,12 @@ export const ModalContainer = styled.div`
 export const ModalContent = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 16px;
+  padding: 10px;
 `;
 
 export const ImageContainer = styled.div`
   flex: 1;
-  margin-right: 16px;
-  padding: 20px;
+  padding: 10px;
   justify-content: center;
   text-align: center;
   
@@ -35,7 +34,7 @@ export const ImageContainer = styled.div`
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12);
 
     &.mobile {
-      max-width: 49%;
+      width: 49%;
     }
   }
 `;

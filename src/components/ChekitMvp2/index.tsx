@@ -4,7 +4,7 @@ import { MVP2_INFO } from 'src/constants';
 import ImageItem from '../common/ImageItem';
 import WaveText from '@components/common/WaveText';
 import ImageModal from '../common/ImageModal';
-import imageUrl from '../../../public/images/mvp2_main.png';
+import imageUrl from '/images/mvp2_main.png';
 
 
 const ChekitMvp2 = () => {

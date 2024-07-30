@@ -17,16 +17,16 @@ export const ModalContainer = styled.div`
   flex-direction: row;
   padding: 16px;
   width: 50dvw;
-  height: 83dvh; 
+  height: 80dvh; 
   max-width: 710px; 
-  max-height: 730px;
+  max-height: 700px;
   
   & img {
     width: 80%;
   }
   
   @media screen and (max-width: ${breakPoints.mobile}px) {
-    width: 100dvw;
+    width: 95dvw;
     height: 60dvh;
   }
   `;

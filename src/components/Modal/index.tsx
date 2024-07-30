@@ -21,7 +21,7 @@ const StyledModal = styled(Modal)`
   background: linear-gradient(360deg, rgba(249,249,249,1) 0%, rgba(249,249,249,1) 0%, rgba(249,249,249,1) 65%, rgba(237,234,255,1) 87%, rgba(217,211,250,0.8) 100%);
   min-width: 500px;
   min-height: 400px;
-  max-height: 800px;
+  max-height: 700px;
   overflow-y: auto;
   border-radius: 12px;
   box-shadow: 1px 3px 4px 1px rgba(102,102,102,0.18);

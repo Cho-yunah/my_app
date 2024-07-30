@@ -3,7 +3,7 @@ import { ImageContents, MainDesc, MainImageBox, SubDesc } from '../IntroContent/
 import WaveText from '../common/WaveText';
 import { ADMIN_INFO } from '@/constants';
 import WebImageItem from '../common/WebImageItem';
-import imageUrl from '@assets/images/admin_main.png';
+import imageUrl from '/images/admin_main.png';
 import ImageModal from '../common/ImageModal';
 
 const ChekitAdmin = () => {

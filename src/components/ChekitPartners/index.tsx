@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { ImageContents, MainDesc, MainImageBox, SubDesc } from '../IntroContent/style';
 import WaveText from '../common/WaveText';
 import { PARTNERS_ADMIN, PARTNERS_CUSTOMER } from '@/constants';
 import WebImageItem from '../common/WebImageItem';
 import ImageModal from '../common/ImageModal';
-import imageUrl from '@assets/images/partners_main.png';
+import imageUrl from '/images/partners_main.png';
 
 const ChekitPartners = () => {
+  const [clickedImage, setClickedImage] = useState({ url: '', desc: '' });
+  const [selectedImgNum, setSelectedImgNum] = useState(0);
   const [showContentsModal, setShowContentsModal] = useState(false);
 
+  // const onClickPageLink = useCallback(() => {
+  //   window.open(url);
+  // },[url])
+
+  const onCloseModal = useCallback(() => {
+    setShowContentsModal(false);
+  },[])
 
   return (
     <div>
@@ -38,17 +47,28 @@ const ChekitPartners = () => {
           <WaveText text="Click the image below!" />
           <h3>고객 서비스 화면</h3>
           <WebImageItem 
-            imageUrls={PARTNERS_CUSTOMER}
+            imageUrls={PARTNERS_CUSTOMER} 
+            setClickedImage={setClickedImage}
             setShowContentsModal={setShowContentsModal} 
+            setSelectedImgNum={setSelectedImgNum}
           />
           {/* <br/> */}
           <h3>어드민 화면</h3>
           <WebImageItem 
             imageUrls={PARTNERS_ADMIN}
+            setClickedImage={setClickedImage}
             setShowContentsModal={setShowContentsModal} 
+            setSelectedImgNum={setSelectedImgNum}
           />
         </ImageContents>
-      
+        <ImageModal
+        show={showContentsModal}
+        selectedImgNum={selectedImgNum}
+        setShowContentsModal={setShowContentsModal}
+        onCloseModal={onCloseModal}
+        InfoArr={clickedImage}
+        imageUrlArr={PARTNERS_CUSTOMER}
+      /> 
     </div>
   );
 };

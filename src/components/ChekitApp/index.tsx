@@ -1,15 +1,16 @@
 import { ImageContents, Images, MainDesc, MainImageBox, SubDesc } from '@components/IntroContent/style';
 import React, { useCallback, useState } from 'react';
-import { APP_INFO, MVP2_INFO } from 'src/constants';
+import { APP_INFO } from 'src/constants';
 import ImageItem from '../common/ImageItem';
 import WaveText from '@components/common/WaveText';
 import ImageModal from '../common/ImageModal';
-import imageUrl from '@assets/images/app_main.png';
+import imageUrl from '/images/app_main.png';
 
 const ChekitApp = () => {
   const url = 'https://www.chekit.kr/Register-and-check-the-kitresults';
   const [clickedImage, setClickedImage] = useState({ url: '', desc: '' });
   const [showContentsModal, setShowContentsModal] = useState(false);
+  const [selectedImgNum, setSelectedImgNum] = useState(0);
 
   const onClickPageLink = useCallback(() => {
     window.open(url);
@@ -50,19 +51,22 @@ const ChekitApp = () => {
         <ImageContents>
           <WaveText text="Click the image below!" />
           <ImageItem 
-            setClickedImage={setClickedImage}
             imageUrls={APP_INFO} 
+            setClickedImage={setClickedImage}
             setShowContentsModal={setShowContentsModal} 
-            isApp={true}
+            setSelectedImgNum={setSelectedImgNum}
           />
         </ImageContents>
       </div>
 
       <ImageModal
-        show={showContentsModal}
-        setShowContentsModal={setShowContentsModal}
-        onCloseModal={onCloseModal}
-        InfoArr={clickedImage}
+       show={showContentsModal}
+       selectedImgNum={selectedImgNum}
+       setShowContentsModal={setShowContentsModal}
+       onCloseModal={onCloseModal}
+       InfoArr={clickedImage}
+       imageUrlArr={APP_INFO}
+       isMobile='mobile'
       /> 
     </>
   );
