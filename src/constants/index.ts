@@ -235,9 +235,6 @@ export const PARTNERS_CUSTOMER: InfoArrType[] = [
     desc: 'Chekit Intro Page',
     subDesc: '체킷의 인트로 페이지 입니다.',
   },
-]
-
-export const PARTNERS_ADMIN: InfoArrType[] = [
   {
     name: 'partners_ad_1',
     url : 'https://firebasestorage.googleapis.com/v0/b/yunaa-3cb91.appspot.com/o/partners_ad_userlist.png?alt=media&token=ea3bd686-e081-4822-b817-86ec03912915',

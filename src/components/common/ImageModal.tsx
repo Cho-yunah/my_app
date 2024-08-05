@@ -19,11 +19,10 @@ interface Props {
 const ImageModal: FC<Props> = ({ show, onCloseModal ,InfoArr, imageUrlArr, selectedImgNum, isMobile}) => {
 
   return (
-    <CreateModal  show={show} onCloseModal={onCloseModal}>
+    <CreateModal  show={show} onCloseModal={onCloseModal} isMobile={isMobile}>
         <ImageContainer>
           <Carousel selectedItem={selectedImgNum}>
             {imageUrlArr.map((item, index) => <img key={index} src={item.url} alt="Mobile Image" className={isMobile} />)}
-            {/* <img src={InfoArr.url} alt="Mobile Image" /> */}
           </Carousel>
         </ImageContainer>
         {InfoArr.subDesc && (

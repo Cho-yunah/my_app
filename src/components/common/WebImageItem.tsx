@@ -10,9 +10,10 @@ type ImageItemProps ={
   setClickedImage?: (flag: { url: string; desc: string }) => void;
   setShowContentsModal: (flag: boolean) => void;
   setSelectedImgNum: (num: number) => void;
+  isPartner?: boolean;
 }
 
-const WebImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClickedImage, setSelectedImgNum }) => {
+const WebImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClickedImage, setSelectedImgNum, isPartner }) => {
 
   const handleClick = useCallback((e: React.MouseEvent<HTMLImageElement>, index:number) => {
     const target = e.target as HTMLImageElement;
@@ -24,7 +25,7 @@ const WebImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setC
 
   return (
     <>
-    <WebImages>
+    <WebImages className={isPartner ? 'partners' : undefined}>
         {imageUrls.map((i,index) => (
           <img key={i.name} src={i.url} alt={i.desc} onClick={(e) => handleClick(e, index)} id={i.name}/>
         ))}

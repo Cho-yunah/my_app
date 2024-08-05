@@ -29,6 +29,11 @@ const IntroContent = () => {
           <li className="mail">
             <a href="mailto:favoryun12@gmail.com">favoryun12@gmail.com</a>
           </li>
+          <li className="mail">
+            PDF Download -
+            <a target='_blank' href="https://drive.google.com/open?id=1-Vz0wABVVp_cP0D3ZbffXOXuUjq8kAYf&authuser=0">이력서</a>
+            <a target='_blank' href="https://drive.google.com/open?id=1R4gZfi4yeyUEnG-PuaDrmngCYdlSa7UY&authuser=0">경력 기술서</a>
+          </li>
         </ul>
         {/* <p className='mobileNone'>You can use left and right arrow key to navigate the page of works.{' ← →'}</p> */}
       </MainDesc>

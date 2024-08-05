@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { ImageContents, MainDesc, MainImageBox, SubDesc } from '../IntroContent/style';
 import WaveText from '../common/WaveText';
-import { PARTNERS_ADMIN, PARTNERS_CUSTOMER } from '@/constants';
+import { PARTNERS_CUSTOMER } from '@/constants';
 import WebImageItem from '../common/WebImageItem';
 import ImageModal from '../common/ImageModal';
 import imageUrl from '/images/partners_main.png';
@@ -45,20 +45,13 @@ const ChekitPartners = () => {
       </MainImageBox>
         <ImageContents>
           <WaveText text="Click the image below!" />
-          <h3>고객 서비스 화면</h3>
+          {/* <h3>고객 서비스 화면</h3> */}
           <WebImageItem 
             imageUrls={PARTNERS_CUSTOMER} 
             setClickedImage={setClickedImage}
             setShowContentsModal={setShowContentsModal} 
             setSelectedImgNum={setSelectedImgNum}
-          />
-          {/* <br/> */}
-          <h3>어드민 화면</h3>
-          <WebImageItem 
-            imageUrls={PARTNERS_ADMIN}
-            setClickedImage={setClickedImage}
-            setShowContentsModal={setShowContentsModal} 
-            setSelectedImgNum={setSelectedImgNum}
+            isPartner={true}
           />
         </ImageContents>
         <ImageModal

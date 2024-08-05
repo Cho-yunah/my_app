@@ -9,6 +9,7 @@ interface ModalProps {
   show: boolean;
   onCloseModal: () => void;
   children: React.ReactNode;
+  isMobile?: string;
 }
 
 const StyledModal = styled(Modal)`
@@ -16,11 +17,11 @@ const StyledModal = styled(Modal)`
   top: 52%;
   left: 50%;
   border: none;
-  // background-color: #f9f9f9;
+  // background-color: ${props => props.contentLabel=='mobile' ? 'blue' : 'yellow'};
   // background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(212,205,247,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(232,228,255,0.8) 100%);
   background: linear-gradient(360deg, rgba(249,249,249,1) 0%, rgba(249,249,249,1) 0%, rgba(249,249,249,1) 65%, rgba(237,234,255,1) 87%, rgba(217,211,250,0.8) 100%);
   min-width: 500px;
-  min-height: 400px;
+  min-height:  ${props => props.contentLabel=='mobile' ? '85dvh' : '50dvh'};
   max-height: 700px;
   overflow-y: auto;
   border-radius: 12px;
@@ -51,7 +52,7 @@ const StyledModal = styled(Modal)`
   }
 `;
 
-const CreateModal:FC<ModalProps> = ({show, children, onCloseModal}) => {
+const CreateModal:FC<ModalProps> = ({show, children, onCloseModal, isMobile}) => {
 
     const stopPropagation = useCallback((e)=> {
       e.stopPropagation();
@@ -60,13 +61,15 @@ const CreateModal:FC<ModalProps> = ({show, children, onCloseModal}) => {
     if(!show) {
       document.body.style.overflow = 'auto';
       return null;
+    } else {
+      document.body.style.overflow = 'hidden';
     }
 
     return (
-      <StyledModal isOpen={show} onRequestClose={onCloseModal} >
+      <StyledModal isOpen={show} onRequestClose={onCloseModal} contentLabel={isMobile}>
         <ModalContainer>
           <CloseModalButton onClick={onCloseModal} style={{color: '#8c7af9'}}>&times;</CloseModalButton>
-            <ModalContent >
+            <ModalContent>
             <Scrollbars autoHide style={{height: 'auto'}}>
               {children}
             </Scrollbars>

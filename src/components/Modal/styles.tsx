@@ -13,16 +13,14 @@ export const ModalContainer = styled.div`
   export const ModalContent = styled.div`
   display: flex;
   justify-content: center;
-  // align-items: center;
-  flex-direction: row;
   padding: 16px;
-  width: 50dvw;
-  height: 80dvh; 
+  min-width: 45dvw;
+  min-height: 75dvh; 
   max-width: 710px; 
   max-height: 700px;
   
   & img {
-    width: 80%;
+    // width: 80%;
   }
   
   @media screen and (max-width: ${breakPoints.mobile}px) {

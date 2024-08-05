@@ -60,13 +60,13 @@ const ChekitApp = () => {
       </div>
 
       <ImageModal
-       show={showContentsModal}
-       selectedImgNum={selectedImgNum}
-       setShowContentsModal={setShowContentsModal}
-       onCloseModal={onCloseModal}
-       InfoArr={clickedImage}
-       imageUrlArr={APP_INFO}
-       isMobile='mobile'
+        show={showContentsModal}
+        selectedImgNum={selectedImgNum}
+        setShowContentsModal={setShowContentsModal}
+        onCloseModal={onCloseModal}
+        InfoArr={clickedImage}
+        imageUrlArr={APP_INFO}
+        isMobile='mobile'
       /> 
     </>
   );

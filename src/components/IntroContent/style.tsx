@@ -48,7 +48,10 @@ export const MainDesc = styled.div`
 
     & a {
       font-size: 15px;
-      color: #222;
+      color: #5e5e5e;
+      padding: 3px;
+      margin-right: 3px;
+      text-decoration: underline;
     }
   }
 
@@ -150,7 +153,7 @@ export const Images = styled.div`
     grid-template-rows: repeat(4, 390px);
   }
 
-  @media screen and (max-width: ${breakPoints.mobile}px) {
+  @media screen and (max-width: ${breakPoints.tablet}px) {
     margin-left: 0px;
     grid-template-columns: repeat(2, 1fr);
     // grid-template-rows: repeat(4, 390px);
@@ -171,18 +174,22 @@ export const Images = styled.div`
 export const WebImages = styled.div`
 display: grid;
 margin: 20px auto;
-padding: 15px;
+padding: 10px;
 justify-items: center;
 
 grid-template-columns: repeat(3, 1fr);
-grid-template-rows: repeat(2, 240px);
+grid-template-rows: repeat(2, 220px);
 grid-gap: 3px;
+
+&.partners {
+  grid-template-rows: repeat(4, 220px);
+}
 
 & img {
   max-width: 320px;
   max-height: 280px;
   box-shadow: 0px 0px 5px #dee2e6;
-  aspect-ratio: 5.2/3;
+  aspect-ratio: 5.3/3;
   cursor: pointer;
 }
 `
