@@ -121,7 +121,7 @@ export const ImageContents = styled.div`
   text-align: center;
   padding: 20px auto;
   width: 100%;
-  max-width: 1120px;
+  max-width: 1240px;
   margin-bottom: 0;
   background-color: #f8f9fa;
 
