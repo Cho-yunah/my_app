@@ -19,7 +19,8 @@ const StyledModal = styled(Modal)`
   border: none;
   // background-color: ${props => props.contentLabel=='mobile' ? 'blue' : 'yellow'};
   // background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(212,205,247,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(232,228,255,0.8) 100%);
-  background: linear-gradient(360deg, rgba(249,249,249,1) 0%, rgba(249,249,249,1) 0%, rgba(249,249,249,1) 65%, rgba(237,234,255,1) 87%, rgba(217,211,250,0.8) 100%);
+  // background: linear-gradient(360deg, rgba(249,249,249,1) 0%, rgba(249,249,249,1) 0%, rgba(249,249,249,1) 65%, rgba(237,234,255,1) 87%, rgba(217,211,250,0.8) 100%);
+  background-color: #e9ecef;
   min-width: 500px;
   min-height:  ${props => props.contentLabel=='mobile' ? '85dvh' : '50dvh'};
   max-height: 700px;
