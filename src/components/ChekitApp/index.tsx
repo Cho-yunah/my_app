@@ -4,7 +4,7 @@ import { APP_INFO } from 'src/constants';
 import ImageItem from '../common/ImageItem';
 import WaveText from '@components/common/WaveText';
 import ImageModal from '../common/ImageModal';
-import imageUrl from '/images/app_main.png';
+import imageUrl from '@assets/images/app_main.png';
 
 const ChekitApp = () => {
   const url = 'https://www.chekit.kr/Register-and-check-the-kitresults';

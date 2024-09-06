@@ -3,7 +3,7 @@ import { ImageContents, MainDesc, MainImageBox, SubDesc } from '@components/Intr
 import WaveText from '../common/WaveText';
 import ImageItem from '../common/ImageItem';
 import { MVP1_INFO } from '@/constants';
-import imageUrl from '/images/mvp1_main.png';
+import imageUrl from '@assets/images/mvp1_main.png';
 import ImageModal from '../common/ImageModal';
 
 const ChekitMvp = () => {

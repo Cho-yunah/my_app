@@ -1,4 +1,4 @@
-import { breakPoints } from '@assets/styles/palette';
+import { BREAK_POINTS } from '@/constants';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -27,7 +27,7 @@ export const MainDesc = styled.div`
     list-style-type: none;
     padding: 5px;
 
-    @media screen and (max-width: ${breakPoints.mobile}px) {
+    @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
       margin-top: 50px;
     }
   }
@@ -56,7 +56,7 @@ export const MainDesc = styled.div`
   }
 
   .mobileNone {
-    @media screen and (max-width: ${breakPoints.mobile}px) {
+    @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
       display: none;
     }
   }
@@ -93,7 +93,7 @@ export const MainImageBox = styled.div`
   margin: 40px 30px;
   text-align: center;
   
-  @media screen and (max-width: ${breakPoints.mobile}px) {
+  @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
     margin: 20px auto;
     img {
       width: 90vw;
@@ -153,7 +153,7 @@ export const Images = styled.div`
     grid-template-rows: repeat(4, 390px);
   }
 
-  @media screen and (max-width: ${breakPoints.tablet}px) {
+  @media screen and (max-width: ${BREAK_POINTS.tablet}px) {
     margin-left: 0px;
     grid-template-columns: repeat(2, 1fr);
     // grid-template-rows: repeat(4, 390px);

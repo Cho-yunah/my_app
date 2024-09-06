@@ -1,11 +1,38 @@
 import { ImageContents, Images, MainDesc, MainImageBox, SubDesc } from '@components/IntroContent/style';
-import React, { useCallback, useState } from 'react';
+import React, { Suspense, useCallback, useEffect, useState } from 'react';
 import { MVP2_INFO } from 'src/constants';
 import ImageItem from '../common/ImageItem';
 import WaveText from '@components/common/WaveText';
 import ImageModal from '../common/ImageModal';
-import imageUrl from '/images/mvp2_main.png';
+import imageUrl from '@assets/images/mvp2_main.png';
 
+const SkeletonImage = () => <div style={{ width: '194px', height: '354px', backgroundColor: '#ddd' }}></div>;
+// const ImageComponent = ({ src, alt }) => {
+//   return <img src={src} alt={alt} width="300" height="200" />;
+// };
+
+// const LazyImageComponent = React.lazy(() => new Promise((resolve) => {
+//   const image = new Image();
+//   image.src = src;
+//   image.onload = () => resolve({ default: () => <ImageComponent src={src} alt={alt} /> });
+// }));
+
+const ImageComponent = ({ src, alt }) => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => setLoaded(true);
+  }, [src]);
+
+  return (
+    <div>
+      {!loaded && <SkeletonImage />}
+      {loaded && <img src={src} alt={alt} width="194" height="354" />}
+    </div>
+  );
+};
 
 const ChekitMvp2 = () => {
   const url = 'https://www.chekit.kr/Register-and-check-the-kitresults';
@@ -20,6 +47,8 @@ const ChekitMvp2 = () => {
   const onCloseModal = useCallback(() => {
     setShowContentsModal(false);
   },[])
+
+  
 
   return (
     <>
@@ -54,12 +83,20 @@ const ChekitMvp2 = () => {
             className="iframe"
           ></iframe>
           <WaveText text="Click the image below!" />
-          <ImageItem 
+          {MVP2_INFO.map((item) => (
+            <div key={item.url}>
+              <Suspense fallback={<SkeletonImage />}>
+                <ImageComponent src={item.url} alt={item.desc} />
+              </Suspense>
+            </div>
+          ))}
+
+          {/* <ImageItem 
             imageUrls={MVP2_INFO} 
             setClickedImage={setClickedImage}
             setShowContentsModal={setShowContentsModal} 
             setSelectedImgNum={setSelectedImgNum}
-          />
+          /> */}
         </ImageContents>
       </div>
 

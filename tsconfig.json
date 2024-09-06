@@ -18,7 +18,8 @@
       "@layouts/*": ["./src/layouts/*"],
       "@pages/*": ["./src/pages/*"],
       "@utils/*": ["./src/utils/*"],
-      "@typings/*": ["./src/typings/*"]
+      "@typings/*": ["./src/typings/*"],
+      "@constants/*": ["./src/constants/*"],
     }
   },
   "includes": ["src", "**/*.tsx"],

@@ -1,21 +1,15 @@
-import React, { FC, useEffect, useState } from 'react';
-import loadable from '@loadable/component';
-import {Route, Routes } from 'react-router-dom';
-import { Article, Aside, Container, Content, ContentsHeader, Overlay, SideHeader, SideList } from '../Workspace/style';
-import ScrollToTop from '@/utils/ScrollToTop';
-import Scrollbars from 'react-custom-scrollbars';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import SideMenu from '@/components/SideMenu';
+
+import Scrollbars from 'react-custom-scrollbars';
+import { Article, Aside, Container, Content, ContentsHeader, Overlay, SideHeader, SideList } from './style';
+import ScrollToTop from '@/utils/ScrollToTop';
 import MenuHamburger from '@/assets/svg/MenuHamburger';
 import ArrowRight from '@/assets/svg/ArrowRight';
-import ChekitMvp2 from '@/components/ChekitMvp2';
-import ChekitMvp from '@/components/ChekitMvp';
-import ChekitAdmin from '@/components/ChekitAdmin';
-import ChekitPartners from '@/components/ChekitPartners';
-import ChekitApp from '@/components/ChekitApp';
-import IntroContent from '@/components/IntroContent';
 
-const Workspace = loadable(() => import('@layouts/Workspace'));
+import SideMenu from '@/components/SideMenu';
+import AppRoutes from '@/routes';
+
 
 const App = () => {
   const workCount = 5;
@@ -74,14 +68,7 @@ const App = () => {
           <div onClick={toggleMenu}>{isMobileSize ? <MenuHamburger /> : <ArrowRight />}</div>
         </ContentsHeader>
         <Article>
-          <Routes>
-            <Route path="/mvp2" element={<ChekitMvp2 />} />
-            <Route path="/mvp" element={<ChekitMvp/>} />
-            <Route path="/admin" element={<ChekitAdmin />} />
-            <Route path="/partners" element={<ChekitPartners />} />
-            <Route path="/app" element={<ChekitApp />} />
-            <Route path="/" element={<IntroContent />} />
-          </Routes>
+          <AppRoutes />
         </Article>
         {/* <FloatingArrow /> */}
 

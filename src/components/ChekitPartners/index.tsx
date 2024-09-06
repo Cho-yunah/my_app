@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react';
 import { ImageContents, MainDesc, MainImageBox, SubDesc } from '../IntroContent/style';
 import WaveText from '../common/WaveText';
-import { PARTNERS_CUSTOMER } from '@/constants';
+import { PARTNERS_INFO } from '@/constants';
 import WebImageItem from '../common/WebImageItem';
 import ImageModal from '../common/ImageModal';
-import imageUrl from '/images/partners_main.png';
+import imageUrl from '@assets/images/partners_main.png';
 
 const ChekitPartners = () => {
   const [clickedImage, setClickedImage] = useState({ url: '', desc: '' });
@@ -47,7 +47,7 @@ const ChekitPartners = () => {
           <WaveText text="Click the image below!" />
           {/* <h3>고객 서비스 화면</h3> */}
           <WebImageItem 
-            imageUrls={PARTNERS_CUSTOMER} 
+            imageUrls={PARTNERS_INFO} 
             setClickedImage={setClickedImage}
             setShowContentsModal={setShowContentsModal} 
             setSelectedImgNum={setSelectedImgNum}
@@ -60,7 +60,7 @@ const ChekitPartners = () => {
         setShowContentsModal={setShowContentsModal}
         onCloseModal={onCloseModal}
         InfoArr={clickedImage}
-        imageUrlArr={PARTNERS_CUSTOMER}
+        imageUrlArr={PARTNERS_INFO}
       /> 
     </div>
   );

@@ -1,4 +1,4 @@
-import { breakPoints } from '@assets/styles/palette';
+import { BREAK_POINTS } from '@/constants';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -25,10 +25,14 @@ export const Aside = styled.aside`
     z-index: 1000;
   }
 
-  @media screen and (max-width: ${breakPoints.mobile}px) {
+  @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
     transform: translateX(-100%);
     transition: transform 0.5s ease-in-out;
     // width: 50%; /* 모바일에서 전체 너비로 확장 */
+  }
+  
+  a {
+    text-decoration: none;
   }
 `;
 
@@ -100,7 +104,7 @@ export const Content = styled.div`
   // background-color: pink;
   height: 100%;
 
-  @media screen and (max-width: ${breakPoints.mobile}px) {
+  @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
     margin-left: 0px;
     padding-top: 0px;
   }
@@ -156,7 +160,7 @@ export const Article = styled.article`
     color: rgba(0, 0, 0, 0.8);
     animation: ${slideUpTitle} 0.5s ease-out;
 
-    @media screen and (max-width: ${breakPoints.mobile}px) {
+    @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
       margin: 80px 30px 50px;
     }
   }

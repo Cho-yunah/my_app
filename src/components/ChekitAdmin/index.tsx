@@ -3,8 +3,10 @@ import { ImageContents, MainDesc, MainImageBox, SubDesc } from '../IntroContent/
 import WaveText from '../common/WaveText';
 import { ADMIN_INFO } from '@/constants';
 import WebImageItem from '../common/WebImageItem';
-import imageUrl from '/images/admin_main.png';
+import imageUrl from '@assets/images/admin_main.png';
 import ImageModal from '../common/ImageModal';
+
+
 
 const ChekitAdmin = () => {
   const [clickedImage, setClickedImage] = useState({ url: '', desc: '' });
@@ -42,7 +44,7 @@ const ChekitAdmin = () => {
       </div>
       <MainImageBox >
           <img style={{boxShadow:'0 2px 5px 1px rgba(0, 0, 0, 0.12)', aspectRatio: 5/3.4}} src={imageUrl} />
-        </MainImageBox>
+      </MainImageBox>
         <ImageContents>
           <WaveText text="Click the image below!" />
           <WebImageItem 

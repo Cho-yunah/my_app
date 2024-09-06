@@ -1,4 +1,4 @@
-import { breakPoints } from '@/assets/styles/palette';
+import { BREAK_POINTS } from '@/constants';
 import styled from '@emotion/styled';
 
 export const ModalContainer = styled.div`
@@ -23,7 +23,7 @@ export const ModalContainer = styled.div`
     // width: 80%;
   }
   
-  @media screen and (max-width: ${breakPoints.mobile}px) {
+  @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
     width: 95dvw;
     height: 60dvh;
   }
