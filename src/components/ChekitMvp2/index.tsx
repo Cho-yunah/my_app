@@ -83,20 +83,20 @@ const ChekitMvp2 = () => {
             className="iframe"
           ></iframe>
           <WaveText text="Click the image below!" />
-          {MVP2_INFO.map((item) => (
+          {/* {MVP2_INFO.map((item) => (
             <div key={item.url}>
               <Suspense fallback={<SkeletonImage />}>
                 <ImageComponent src={item.url} alt={item.desc} />
               </Suspense>
             </div>
-          ))}
+          ))} */}
 
-          {/* <ImageItem 
+          <ImageItem 
             imageUrls={MVP2_INFO} 
             setClickedImage={setClickedImage}
             setShowContentsModal={setShowContentsModal} 
             setSelectedImgNum={setSelectedImgNum}
-          /> */}
+          />
         </ImageContents>
       </div>
 
