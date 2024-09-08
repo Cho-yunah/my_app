@@ -5,25 +5,25 @@ import ImageItem from '../common/ImageItem';
 import WaveText from '@components/common/WaveText';
 import ImageModal from '../common/ImageModal';
 import imageUrl from '@assets/images/mvp2_main.png';
-import { SkeletonImage } from '../common/Skeleton';
+// import { SkeletonImage } from '../common/Skeleton';
 
 
-const ImageComponent = ({ src, alt }) => {
-  const [loaded, setLoaded] = useState(false);
+// const ImageComponent = ({ src, alt }) => {
+//   const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => {
-    const img = new Image();
-    img.src = src;
-    img.onload = () => setLoaded(true);
-  }, [src]);
+//   useEffect(() => {
+//     const img = new Image();
+//     img.src = src;
+//     img.onload = () => setLoaded(true);
+//   }, [src]);
 
-  return (
-    <div>
-      {!loaded && <SkeletonImage />}
-      {loaded && <img src={src} alt={alt} width="194" height="354" />}
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       {!loaded && <SkeletonImage />}
+//       {loaded && <img src={src} alt={alt} width="194" height="354" />}
+//     </div>
+//   );
+// };
 
 const ChekitMvp2 = () => {
   const url = 'https://www.chekit.kr/Register-and-check-the-kitresults';
