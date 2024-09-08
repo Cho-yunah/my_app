@@ -5,17 +5,8 @@ import ImageItem from '../common/ImageItem';
 import WaveText from '@components/common/WaveText';
 import ImageModal from '../common/ImageModal';
 import imageUrl from '@assets/images/mvp2_main.png';
+import { SkeletonImage } from '../common/Skeleton';
 
-const SkeletonImage = () => <div style={{ width: '194px', height: '354px', backgroundColor: '#ddd' }}></div>;
-// const ImageComponent = ({ src, alt }) => {
-//   return <img src={src} alt={alt} width="300" height="200" />;
-// };
-
-// const LazyImageComponent = React.lazy(() => new Promise((resolve) => {
-//   const image = new Image();
-//   image.src = src;
-//   image.onload = () => resolve({ default: () => <ImageComponent src={src} alt={alt} /> });
-// }));
 
 const ImageComponent = ({ src, alt }) => {
   const [loaded, setLoaded] = useState(false);
@@ -34,7 +25,7 @@ const ImageComponent = ({ src, alt }) => {
   );
 };
 
-const ChekitMvp2 = () => {
+const ChekitMvp2 = ({isDarkMode}: {isDarkMode: boolean}) => {
   const url = 'https://www.chekit.kr/Register-and-check-the-kitresults';
   const [clickedImage, setClickedImage] = useState({ url: '', desc: '' });
   const [selectedImgNum, setSelectedImgNum] = useState(0);
@@ -57,7 +48,7 @@ const ChekitMvp2 = () => {
           <span className="title_inner">Chekit Main Service</span>
         </div>
         <div className="description">
-          <MainDesc>
+          <MainDesc isDarkMode={isDarkMode}>
             <span>
               해당 프로젝트는 현재 회사에서 제공되어지는 메인 서비스입니다. <br/>이전에 만들었던 mvp 모델을 기반으로 하여,
               사용자가 원하는 기능을 파악하고 기능을 추가했으며 동시에 고객 중심으로 UI/UX를 개선하였습니다. 이전 mvp
@@ -83,20 +74,20 @@ const ChekitMvp2 = () => {
             className="iframe"
           ></iframe>
           <WaveText text="Click the image below!" />
-          {MVP2_INFO.map((item) => (
+          {/* {MVP2_INFO.map((item) => (
             <div key={item.url}>
               <Suspense fallback={<SkeletonImage />}>
                 <ImageComponent src={item.url} alt={item.desc} />
               </Suspense>
             </div>
-          ))}
+          ))} */}
 
-          {/* <ImageItem 
+          <ImageItem 
             imageUrls={MVP2_INFO} 
             setClickedImage={setClickedImage}
             setShowContentsModal={setShowContentsModal} 
             setSelectedImgNum={setSelectedImgNum}
-          /> */}
+          /> 
         </ImageContents>
       </div>
 
