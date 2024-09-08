@@ -87,11 +87,7 @@ const ChekitMvp2 = ({isDarkMode}: {isDarkMode: boolean}) => {
             setClickedImage={setClickedImage}
             setShowContentsModal={setShowContentsModal} 
             setSelectedImgNum={setSelectedImgNum}
-<<<<<<< HEAD
           />
-=======
-          /> 
->>>>>>> 06bf9ba702200491c7339ef136eb9a962e8fa6e1
         </ImageContents>
       </div>
 
