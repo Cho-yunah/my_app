@@ -25,7 +25,7 @@ const ImageComponent = ({ src, alt }) => {
   );
 };
 
-const ChekitMvp2 = ({isDarkMode}: {isDarkMode: boolean}) => {
+const ChekitMvp2 = () => {
   const url = 'https://www.chekit.kr/Register-and-check-the-kitresults';
   const [clickedImage, setClickedImage] = useState({ url: '', desc: '' });
   const [selectedImgNum, setSelectedImgNum] = useState(0);
@@ -48,7 +48,7 @@ const ChekitMvp2 = ({isDarkMode}: {isDarkMode: boolean}) => {
           <span className="title_inner">Chekit Main Service</span>
         </div>
         <div className="description">
-          <MainDesc isDarkMode={isDarkMode}>
+          <MainDesc >
             <span>
               해당 프로젝트는 현재 회사에서 제공되어지는 메인 서비스입니다. <br/>이전에 만들었던 mvp 모델을 기반으로 하여,
               사용자가 원하는 기능을 파악하고 기능을 추가했으며 동시에 고객 중심으로 UI/UX를 개선하였습니다. 이전 mvp
