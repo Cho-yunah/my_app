@@ -5,7 +5,7 @@ export const CurrentBar = styled.div`
   position: absolute;
   margin-left: 0;
   height: 100%;
-  background-color: #5c3ef1;
+  background-color: ${(props) => props.theme.pointColorPrimary};
 `;
 export const MenuContainer = styled.ul`
   margin: 0px;
@@ -17,15 +17,16 @@ export const ListItem = styled.li`
   cursor: pointer;
   overflow: hidden;
   text-decoration: none;
+  &:hover {
+    background-color: ${(props) => props.theme.hoverColor}
+  }
 `;
     
-    export const MenuItem = styled.div`
+export const MenuItem = styled.div`
     transition: 0.2s;
     cursor: pointer;
-    color: rgba(51, 51, 51, 0.6);
-    // height: 100%;
+    color: ${(props) => props.theme.textColorPrimary};
     padding: 7px 0;
-    // border: 1px solid black;
 
   & p {
     padding: 0 38px;
@@ -38,20 +39,21 @@ export const ListItem = styled.li`
     
     &.tag {
       margin-top: 0.6em;
-        font-size: 13px;
-        user-select: none;
-      }
+      font-size: 12.5px;
+      user-select: none;
+    }
   }
-
+  
   &.active {
-    color: #5c3ef1;
-    font-weight: 700 !important;
+      color: ${(props) => props.theme.pointColorPrimary} !important;
+      font-weight: 700 !important;
   }
+    
 `;
 
 export const Ripple = styled.div`
   position: absolute;
-  background-color: rgba(51, 51, 51, 0.2);
+  background-color: ${(props) => props.theme.rippleColor};
   transform: scale(0);
   animation: rippleEffect 1.5s linear;
   ${({ style }) => `

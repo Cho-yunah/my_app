@@ -3,32 +3,38 @@ import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  display: flex;
+  background-color: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme.textColorPrimary};
+  transition: background-color 0.3s ease, color 0.3s ease;
 `;
 
 export const Aside = styled.aside`
-  background-color: white;
+  // background-color: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme.textColorPrimary};
   z-index: 1000;
   width: 310px;
   min-width: 310px;
   height: 100vh;
-  flex-shrink: 0; /* 메뉴 리스트가 컨텐츠 영역을 밀어내지 못하도록 설정 */
   position: fixed;
   top: 0; /* 위쪽에 고정 */
   left: 0; /* 왼쪽에 고정 */
   bottom: 0; /* 아래쪽에 고정 */
   overflow-y: auto; /* 세로 스크롤을 허용하여 내용이 넘칠 때 스크롤 표시 */
-  // background-color: pink;
 
   &.open {
+    z-index: 1000;  
     transform: translateX(0);
-    z-index: 1000;
+    transition: transform 0.2s ease-in-out;
+    // box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); // 약간의 그림자
+  }
+  &.none {
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
   }
 
   @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
     transform: translateX(-100%);
     transition: transform 0.5s ease-in-out;
-    // width: 50%; /* 모바일에서 전체 너비로 확장 */
   }
   
   a {
@@ -43,6 +49,7 @@ export const Overlay = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+  color: ${(props) => props.theme.textColorPrimary};
   z-index: 999;
   display: none;
   transition: background 0.3s ease-in-out;
@@ -54,21 +61,21 @@ export const Overlay = styled.div`
 export const SideHeader = styled.section`
   transition: 0.2s;
   padding: 38px;
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.08);
-  border-right: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1.5px solid ${(props) => props.theme.borderColorPrimary};
+  border-right: 1.5px solid ${(props) => props.theme.borderColorPrimary};
   line-height: 22px;
   height: 240px;
   position: relative;
   cursor: pointer;
+  color: ${(props) => props.theme.textColorPrimary};
 
   & .name {
     font-size: 17px;
     font-weight: 500;
-    color: #333;
   }
 
   & .desc {
-    color: #222;
+    color: ${(props) => props.theme.textColorGrey};
     font-size: 13px;
   }
 
@@ -77,32 +84,40 @@ export const SideHeader = styled.section`
     bottom: 38px;
     font-size: 13px;
     font-weight: 400;
-    color: rgba(102, 102, 102, 0.45);
+    color: ${(props) => props.theme.textColorGrey};
+
 
     & span {
       font-weight: 500;
       font-size: 15px;
-      color: rgba(51, 51, 51, 0.8);
+      color: ${(props) => props.theme.textColorSecondary};
     }
   }
 `;
+
 export const SideList = styled.section`
   height: calc(100% - 244px);
-  border-right: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-right: 1.5px solid ${(props) => props.theme.borderColorPrimary};
   box-sizing: border-box;
+  color: ${(props) => props.theme.textColorPrimary};
 `;
 
-export const Content = styled.div`
-  flex-direction: column;
-  color: #5e5e5e;
-  padding: 0px;
-  margin-left: 310px;
-  -webkit-font-smoothing: antialiased;
-  flex: 1;
-  overflow-y: auto;
-  backgroundd-color: #f9f9f9;
-  // background-color: pink;
+type ContentsHeaderProps = {
+  isMenuOpen: boolean;
+};
+
+export const Content = styled.div<ContentsHeaderProps>`
   height: 100%;
+  overflow-y: auto;
+  flex: 1;
+  flex-direction: column;
+  padding: 0px;
+  margin-left: ${(props) => props.isMenuOpen ? '310px' : '0px'};
+  -webkit-font-smoothing: antialiased;
+  background-color: ${(props) => props.theme.backgroundColorSecondary};
+  color: ${(props) => props.theme.textColorPrimary};
+  transition: background-color 0.3s ease, color 0.3s ease;
+
 
   @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
     margin-left: 0px;
@@ -110,18 +125,40 @@ export const Content = styled.div`
   }
 `;
 
-export const ContentsHeader = styled.header`
+export const ContentsHeader = styled.header<ContentsHeaderProps>`
   position: fixed;
-  width: 100%;
+  width: 90dvw;
+  max-width: ${(props) => props.isMenuOpen ? 'calc(100% - 315px)' : '100%'};
   z-index: 900;
-  background-color: #fff;
+  color: ${(props) => props.theme.textColorPrimary};  
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 
-  & #back_svg,
+  .iconBox {
+    background-color: ${(props) => props.theme.iconBoxColor};
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // transition: transform 0.2s ease-in-out;
+  }
+
+  #back_svg {
+    // transform: rotate(180deg);
+    margin: 10px;
+    fill: ${(props) => props.theme.textColorPrimary};
+
+  }
   #gnb_svg {
     transform: rotate(180deg);
-    margin: 10px 20px;
+    margin: 5px;
+    fill: ${(props) => props.theme.textColorPrimary};
   }
+
 `;
 
 const slideUpTitle = keyframes`
@@ -157,7 +194,7 @@ export const Article = styled.article`
     padding: 20px 5px;
     font-size: 40px;
     font-weight: 300;
-    color: rgba(0, 0, 0, 0.8);
+    color: ${(props) => props.theme.textColorPrimary};
     animation: ${slideUpTitle} 0.5s ease-out;
 
     @media screen and (max-width: ${BREAK_POINTS.mobile}px) {

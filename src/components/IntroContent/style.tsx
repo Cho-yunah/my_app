@@ -14,10 +14,10 @@ const slideUp = keyframes`
 `;
 
 export const MainDesc = styled.div`
-  color: rgba(0, 0, 0, 0.6);
+  display: block;
   width: 80%;
   padding: 40px;
-  display: block;
+  color: ${(props) => props.theme.textColorSecondary};
 
   @media screen and (max-width: 900px) {
     width: 90%;
@@ -48,7 +48,7 @@ export const MainDesc = styled.div`
 
     & a {
       font-size: 15px;
-      color: #5e5e5e;
+      color: ${(props) => props.theme.textColorGrey};
       padding: 3px;
       margin-right: 3px;
       text-decoration: underline;
@@ -63,13 +63,12 @@ export const MainDesc = styled.div`
 `;
 
 export const SubDesc = styled.ul`
+  width: 43%;
+  margin: 40px 30px;
+  list-style: none;
   font-size: 14px;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.6);
-  width: 43%;
-  list-style: none;
-  margin: 40px 30px;
-  
+  color: ${(props) => props.theme.textColorGrey};
   
   @media screen and (max-width: 900px) {
     margin: 20px 30px;
@@ -81,7 +80,7 @@ export const SubDesc = styled.ul`
     content: '• ';
     font-weight: 500;
     margin-right: 5px;
-    color: rgba(0, 0, 0, 0.4);
+    color: ${(props) => props.theme.textColorGrey};
   }
 
   & .text-bold {
@@ -118,12 +117,12 @@ export const MainImageBox = styled.div`
 `;
 
 export const ImageContents = styled.div`
-  text-align: center;
-  padding: 20px auto;
   width: 100%;
   max-width: 1240px;
+  padding: 20px auto;
   margin-bottom: 0;
-  background-color: #f8f9fa;
+  background-color: ${(props) => props.theme.backgroundColorSecondary};
+  text-align: center;
 
   & .iframe {
     height: 550px;
