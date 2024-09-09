@@ -9,16 +9,24 @@ import ArrowRight from '@/assets/svg/ArrowRight';
 
 import SideMenu from '@/components/SideMenu';
 import AppRoutes from '@/routes';
+import { ThemeProvider } from '@emotion/react';
+import { darkTheme, lightTheme } from '@/styles/theme';
+import { MdLightMode,MdModeNight } from "react-icons/md";
+
 
 
 const App = () => {
   const workCount = 5;
   const [isMobileSize, setIsMobileSize] = useState(window.innerWidth < 800);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleMenu = () => {
-    if (!isMobileSize) return;
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
   const closeMenu = () => {
@@ -41,39 +49,62 @@ const App = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+  useEffect(() => {
+    isMobileSize ? setIsMenuOpen(false): setIsMenuOpen(true);
+  },[isMobileSize])
+
+  useEffect (() => {
+    // 다크 모드 체크
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDarkMode) {
+      setIsDarkMode(true);
+    }
+  },[])
+
+  useEffect (() => {
+    // 다크 모드 설정
+    console.log(isMenuOpen)
+  },[isMenuOpen])
 
   return (
-    <Container id="workspace">
-      <ScrollToTop />
-      <Aside id="aside" className={isMenuOpen ? 'open' : ''}>
-      <Scrollbars autoHide  style={{ width:310, height: '100%' }}>
-        <Link to="/">
-          <SideHeader onClick={handleClick}>
-            <div className="name">Yuna Cho</div>
-            <div className="desc">Frontend Engineer</div>
-            <div className="workCount">
-              <span>{workCount}</span> works
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme }>
+      <Container id="workspace" >
+        <ScrollToTop />
+        <Aside id="aside" className={isMenuOpen ? 'open' : 'none'}>
+        <Scrollbars autoHide  style={{ width:310, height: '100%' }}>
+          <Link to="/">
+            <SideHeader onClick={handleClick}>
+              <div className="name">Yuna Cho</div>
+              <div className="desc">Frontend Engineer</div>
+              <div className="workCount">
+                <span>{workCount}</span> works
+              </div>
+            </SideHeader>
+          </Link>
+          <SideList>
+            <SideMenu isMobileSize={isMobileSize} closeMenu={closeMenu} />
+          </SideList>
+        </Scrollbars>
+        </Aside>
+        <Overlay className={isMenuOpen && isMobileSize ? 'open' : ''} onClick={closeMenu} />
+
+        <Content id="content" isMenuOpen={isMenuOpen} >
+          <ContentsHeader isMenuOpen={isMenuOpen}>
+            <div onClick={toggleMenu} >
+              { !isMenuOpen? <MenuHamburger /> : <ArrowRight />}
             </div>
-          </SideHeader>
-        </Link>
-        <SideList>
-          <SideMenu isMobileSize={isMobileSize} closeMenu={closeMenu} />
-        </SideList>
-      </Scrollbars>
-      </Aside>
-      <Overlay className={isMenuOpen ? 'open' : ''} onClick={closeMenu} />
+            <div className='iconBox' onClick={toggleDarkMode}>
+              {isDarkMode ?<MdLightMode size={20}/>: <MdModeNight size={20}/>}
+            </div>
+          </ContentsHeader>
+          <Article>
+            <AppRoutes />
+          </Article>
+          {/* <FloatingArrow /> */}
 
-      <Content id="content" >
-        <ContentsHeader>
-          <div onClick={toggleMenu}>{isMobileSize ? <MenuHamburger /> : <ArrowRight />}</div>
-        </ContentsHeader>
-        <Article>
-          <AppRoutes />
-        </Article>
-        {/* <FloatingArrow /> */}
-
-      </Content>
-    </Container>
+        </Content>
+      </Container>
+    </ThemeProvider>
   );
 };
 
