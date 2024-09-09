@@ -33,7 +33,7 @@ export const MainDesc = styled.div`
   }
 
   & .riseUp {
-    color: #212529;
+    color: ${(props) => props.theme.textColorSecondary};
     animation: ${slideUp} 1s ease-out;
   }
   
