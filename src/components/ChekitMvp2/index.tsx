@@ -38,9 +38,7 @@ const ChekitMvp2 = () => {
   const onCloseModal = useCallback(() => {
     setShowContentsModal(false);
   },[])
-
   
-
   return (
     <>
       <div>
