@@ -11,6 +11,7 @@ export const Container = styled.div`
 
 export const Aside = styled.aside`
   color: ${(props) => props.theme.textColorPrimary};
+  background-color: ${(props) => props.theme.backgroundColorSecondary};
   z-index: 1000;
   width: 310px;
   min-width: 310px;
@@ -104,6 +105,7 @@ export const SideList = styled.section`
 
 type ContentsHeaderProps = {
   isMenuOpen: boolean;
+  isMobileSize: boolean;
 };
 
 export const Content = styled.div<ContentsHeaderProps>`
@@ -112,7 +114,7 @@ export const Content = styled.div<ContentsHeaderProps>`
   flex: 1;
   flex-direction: column;
   padding: 0px;
-  margin-left: ${(props) => props.isMenuOpen ? '310px' : '0px'};
+  margin-left: ${(props) => props.isMenuOpen ? (props.isMobileSize? '0px' : '310px' ): '0px'};
   -webkit-font-smoothing: antialiased;
   background-color: ${(props) => props.theme.backgroundColorSecondary};
   color: ${(props) => props.theme.textColorPrimary};
