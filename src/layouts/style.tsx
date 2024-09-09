@@ -6,10 +6,10 @@ export const Container = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
   color: ${(props) => props.theme.textColorPrimary};
   transition: background-color 0.3s ease, color 0.3s ease;
+  height: 100vh;
 `;
 
 export const Aside = styled.aside`
-  // background-color: ${(props) => props.theme.backgroundColor};
   color: ${(props) => props.theme.textColorPrimary};
   z-index: 1000;
   width: 310px;
