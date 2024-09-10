@@ -45,8 +45,8 @@ const ImageItem: FC<ImageItemProps> = ({ imageUrls, setShowContentsModal,setClic
               style: {transitionDelay: "0.3s"},
             }}   
             alt={i.desc}
-            width={194} 
-            height={contentsName=='mvp1'? 354 : 374}
+            // width={194} 
+            // height={contentsName=='mvp1'? 354 : 374}
             onClick={(e) => handleClick(e, index)}          />
         ))}
     </Images>

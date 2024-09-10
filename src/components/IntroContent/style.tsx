@@ -25,7 +25,6 @@ export const MainDesc = styled.div`
   display: block;
   width: 80%;
   padding: 40px;
-  // margin: 5px auto;
   color: ${(props) => props.theme.textColorSecondary};
 
   @media screen and (max-width: 900px) {
@@ -102,10 +101,6 @@ export const MainImageBox = styled.div`
   margin: 20px auto;
   text-align: center;
   
-  @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
-    // background-color: pink;
-  }
-
   &.shadow-box {
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16);
   }
@@ -117,7 +112,7 @@ export const MainImageBox = styled.div`
 
   &.appImageBox {
     img {
-      max-width: 920px;
+      max-width: 900px;
     }
   }
 `;
@@ -143,42 +138,54 @@ export const ImageContents = styled.div`
 
 export const Images = styled.div`
   display: grid;
-  margin: 20px auto;
+  margin: 10px auto;
   padding: 15px;
   justify-items: center;
   cursor: pointer;
 
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 400px);
-  grid-gap: 3px;
-
-  @media screen and (max-width: 1300px) {
-    margin-left: 0px;
-    grid-template-columns: repeat(3, 260px);
-    grid-template-rows: repeat(4, 390px);
-  }
-
-  @media screen and (max-width: ${BREAK_POINTS.tablet}px) {
-    margin-left: 0px;
-    grid-template-columns: repeat(2, 1fr);
-    // grid-template-rows: repeat(4, 390px);
-  }
+  grid-gap: 10px;
 
   & img {
-    max-width: 194px;
+    max-width: 200px;
     max-height: 400px;
     box-shadow: 0px 0px 5px #dee2e6;
     aspect-ratio: 3/5.5;
-
+    
     &.app {
       aspect-ratio: 3/6;
     }
   }
+
+  @media screen and (max-width: ${BREAK_POINTS.tablet}px) {
+    margin-left: 0px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 390px);
+
+    & img {
+      max-width: 174px;
+      max-height: 350px;
+    }
+  }
+
+  @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
+    margin-left: 0px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 300px);
+
+    & img {
+      max-width: 150px;
+      max-height: 310px;
+    }
+  }
+
+
 `;
 
 export const WebImages = styled.div`
   display: grid;
-  margin: 20px auto;
+  margin: 10px auto;
   padding: 10px;
   justify-items: center;
 
@@ -187,25 +194,34 @@ export const WebImages = styled.div`
   grid-gap: 15px;
 
   &.partners {
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 1fr);
   }
 
   & img {
-    max-width: 450px;
+    max-width: 430px;
     max-height: 320px;
     box-shadow: 0px 0px 5px #dee2e6;
-    // aspect-ratio: 5.3/3;
+    aspect-ratio: 5.3/3;
     cursor: pointer;
   }
-
+  
   @media screen and (max-width: ${BREAK_POINTS.tablet}px) {
-    margin-left: 0px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 210px);
+      
+    & img {
+      max-width: 370px;
+      max-height: 210px;
+    }
+  }
+
+  @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    grid-gap: 20px;
+
     & img {
-      max-width: 460px;
-      max-height: 300px;
+      max-width: 345px;
+      max-height: 200px;
     }
   }
 `

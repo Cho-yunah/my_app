@@ -24,7 +24,7 @@ const ChekitApp = () => {
     <>
       <div>
         <div className="title">
-          <span className="title_inner">Chekit Main Service</span>
+          <span className="title_inner">Chekit App</span>
         </div>
         <div className="description">
           <MainDesc>
@@ -38,7 +38,7 @@ const ChekitApp = () => {
             {/* <p onClick={onClickPageLink} className='underline'>Web Service Link</p> */}
           </MainDesc>
           <SubDesc>
-            <li>Vue, Tailwind, pinia</li>
+            <li>React-Native, Recoil, Scss, TypeScript</li>
             <li>Team Project</li>
             <li className='text-bold'>Frontend Solo</li>
 
