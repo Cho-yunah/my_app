@@ -13,10 +13,19 @@ const slideUp = keyframes`
   }
 `;
 
+export const Intro = styled.div`
+  padding: 10px 20px 0;
+  margin: 5px auto;
+  @media screen and (min-width: ${BREAK_POINTS.tablet}px) {
+    width: 95%;
+  }
+`;
+
 export const MainDesc = styled.div`
   display: block;
   width: 80%;
   padding: 40px;
+  // margin: 5px auto;
   color: ${(props) => props.theme.textColorSecondary};
 
   @media screen and (max-width: 900px) {
@@ -89,14 +98,12 @@ export const SubDesc = styled.ul`
 `;
 
 export const MainImageBox = styled.div`
-  margin: 40px 30px;
+  width: 90%;
+  margin: 20px auto;
   text-align: center;
   
   @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
-    margin: 20px auto;
-    img {
-      width: 90vw;
-    }
+    // background-color: pink;
   }
 
   &.shadow-box {
@@ -104,10 +111,9 @@ export const MainImageBox = styled.div`
   }
 
   & img {
-    max-width: 750px;
-    min-width: 300px;  
+    width:100%;
+    max-width: 680px;
   }
-  
 
   &.appImageBox {
     img {
@@ -120,7 +126,7 @@ export const ImageContents = styled.div`
   width: 100%;
   max-width: 1240px;
   padding: 20px auto;
-  margin-bottom: 0;
+  margin: 10px auto 0px;
   background-color: ${(props) => props.theme.backgroundColorSecondary};
   text-align: center;
 
@@ -171,24 +177,35 @@ export const Images = styled.div`
 `;
 
 export const WebImages = styled.div`
-display: grid;
-margin: 20px auto;
-padding: 10px;
-justify-items: center;
+  display: grid;
+  margin: 20px auto;
+  padding: 10px;
+  justify-items: center;
 
-grid-template-columns: repeat(3, 1fr);
-grid-template-rows: repeat(2, 220px);
-grid-gap: 3px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 15px;
 
-&.partners {
-  grid-template-rows: repeat(4, 220px);
-}
+  &.partners {
+    grid-template-rows: repeat(4, 1fr);
+  }
 
-& img {
-  max-width: 320px;
-  max-height: 280px;
-  box-shadow: 0px 0px 5px #dee2e6;
-  aspect-ratio: 5.3/3;
-  cursor: pointer;
-}
+  & img {
+    max-width: 450px;
+    max-height: 320px;
+    box-shadow: 0px 0px 5px #dee2e6;
+    // aspect-ratio: 5.3/3;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: ${BREAK_POINTS.tablet}px) {
+    margin-left: 0px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 20px;
+    & img {
+      max-width: 460px;
+      max-height: 300px;
+    }
+  }
 `

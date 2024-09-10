@@ -7,6 +7,7 @@ export const Container = styled.div`
   color: ${(props) => props.theme.textColorPrimary};
   transition: background-color 0.3s ease, color 0.3s ease;
   height: 100vh;
+  margin: 0 auto;
 `;
 
 export const Aside = styled.aside`
@@ -120,6 +121,12 @@ export const Content = styled.div<ContentsHeaderProps>`
   color: ${(props) => props.theme.textColorPrimary};
   transition: background-color 0.3s ease, color 0.3s ease;
 
+  @media screen and (min-width: ${BREAK_POINTS.tablet}px) {
+    max-width : 1360px;
+    align-items: center;
+    justify-content: center;
+    // margin: 0 auto;
+  }
 
   @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
     margin-left: 0px;
@@ -129,8 +136,8 @@ export const Content = styled.div<ContentsHeaderProps>`
 
 export const ContentsHeader = styled.header<ContentsHeaderProps>`
   position: fixed;
-  width: 90dvw;
-  max-width: ${(props) => props.isMenuOpen ? 'calc(100% - 315px)' : '100%'};
+  width: 98dvw;
+  max-width: ${(props) => props.isMenuOpen ? 'calc(100% - 336px)' : '100%'};
   z-index: 900;
   color: ${(props) => props.theme.textColorPrimary};  
   cursor: pointer;
@@ -206,7 +213,6 @@ export const Article = styled.article`
 
   & .description {
     display: flex;
-    // margin: 10px 35px;
     width: auto;
     animation: ${slideUp} 0.5s ease-out;
 

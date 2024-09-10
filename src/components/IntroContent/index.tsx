@@ -1,18 +1,21 @@
 import React from 'react';
-import { MainDesc } from './style';
+import { Intro, MainDesc, Title } from './style';
 
 const IntroContent = () => {
 
   return (
-    <div>
-      <div className="title">
-        <span className="title_inner riseUp">Hello</span>
+    <div >
+      <div className='title'>
+        <Intro>
+          <span className="title_inner riseUp">Hello</span>
+        </Intro>
       </div>
       <MainDesc>
+        <Intro>
         <p className='riseUp'>
         프론트엔드 개발자 조윤아 입니다.
         <br />
-        프로젝트의 기획부터 실행까지 적극적으로 참여하며, 팀원들과 원활한 커뮤니케이션을 통해 목표 달성을 위해 협력합니다. 
+        프로젝트의 기획부터 실행까지 적극적으로 참여 하며, 팀원들과 원활한 커뮤니케이션을 통해 목표 달성을 위해 협력합니다. 
         특히, 팀 전체가 One Team 이 되어 문제를 해결하고 제품을 만들어 나가는 것을 선호하며, 그에 집중합니다.
         <br />
         사용자 경험을 향상시키기 위해 기술적으로 노력하여 개선을 이루고, 최상의 결과물을 이끌어냅니다. 
@@ -36,6 +39,7 @@ const IntroContent = () => {
           </li>
         </ul>
         {/* <p className='mobileNone'>You can use left and right arrow key to navigate the page of works.{' ← →'}</p> */}
+        </Intro>
       </MainDesc>
     </div>
   );

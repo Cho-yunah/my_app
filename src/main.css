@@ -1,18 +1,19 @@
+* {
+  box-sizing: border-box;
+  font:inherit;color:inherit;
+  /* font-family: 'Roboto','AppleSDGothic', sans-serif !important; */
+}
+
 :root {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'AppleSDGothic', sans-serif !important;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
 
-  /* color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
 
 a {
   font-weight: 500;
@@ -26,7 +27,7 @@ a:hover {
 body {
   margin: 0;
   place-items: center;
-  min-width: 320px;
+  min-width: 310px;
   min-height: 100vh;
 }
 

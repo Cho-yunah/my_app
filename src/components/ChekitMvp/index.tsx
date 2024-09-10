@@ -39,8 +39,8 @@ const ChekitMvp = () => {
         </SubDesc>
       </div>
       <MainImageBox>
-          <img width="600" height="600" src={imageUrl} />
-        </MainImageBox>
+          <img src={imageUrl} />
+      </MainImageBox>
         <ImageContents>
           <WaveText text="Click the image below!" />
             <ImageItem 

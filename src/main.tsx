@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from '@layouts/index';
 import ReactModal from 'react-modal';
+import './main.css';
 
 const rootNode = document.getElementById('root');
 

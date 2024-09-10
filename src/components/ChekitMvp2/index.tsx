@@ -62,7 +62,7 @@ const ChekitMvp2 = () => {
           </SubDesc>
         </div>
         <MainImageBox>
-          <img src={imageUrl} alt='chekit main image' />
+          <img src={imageUrl}  alt='chekit main image' />
         </MainImageBox>
         <ImageContents>
           <iframe

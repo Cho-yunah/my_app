@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { ImageContents, MainDesc, MainImageBox, SubDesc } from '../IntroContent/style';
+import { ImageContents, MainDesc, MainImageBox, SubDesc, Title } from '../IntroContent/style';
 import WaveText from '../common/WaveText';
 import { ADMIN_INFO } from '@/constants';
 import WebImageItem from '../common/WebImageItem';
@@ -25,7 +25,7 @@ const ChekitAdmin = () => {
     <div>
       {/* 타이틀 및 설명 */}
       <div className="title">
-        <span className="title_inner">Chekit Admin Renew</span>
+        <span>Chekit Admin Renew</span>
       </div>
       <div className="description">
         <MainDesc>

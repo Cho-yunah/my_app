@@ -14,7 +14,7 @@ import { MdLightMode,MdModeNight } from "react-icons/md";
 const App = () => {
   const workCount = 5;
   const [isMobileSize, setIsMobileSize] = useState(window.innerWidth < 800);
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false); 
 
   const toggleMenu = () => {
