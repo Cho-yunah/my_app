@@ -34,7 +34,7 @@ export const MenuItem = styled.div`
     user-select: none;
 
     &.title {
-      margin-bottom: 0.6em;
+      // margin-bottom: 0.6em;
     }
     
     &.tag {

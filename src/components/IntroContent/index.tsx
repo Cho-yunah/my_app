@@ -1,5 +1,5 @@
 import React from 'react';
-import { Intro, MainDesc, Title } from './style';
+import { Intro, MainDesc } from './style';
 
 const IntroContent = () => {
 

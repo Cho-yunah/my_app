@@ -199,15 +199,15 @@ export const Article = styled.article`
 
 
   & .title {
-    margin: 80px 30px 30px;
-    padding: 20px 5px;
+    margin: 80px 30px 10px;
+    padding: 20px 5px 10px;
     font-size: 40px;
     font-weight: 300;
     color: ${(props) => props.theme.textColorPrimary};
     animation: ${slideUpTitle} 0.5s ease-out;
 
     @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
-      margin: 80px 30px 50px;
+      // margin: 80px 30px 10px;
     }
   }
 
