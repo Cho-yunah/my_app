@@ -15,12 +15,16 @@ export const ModalContainer = styled.div`
   margin: 0 auto;
   padding: 10px;
   position: relative;
+  width: 80vw;
+  height: 60vh;
 `;
 
 export const ModalContent = styled.div`
   display: flex;
   flex-direction: row;
   padding: 10px;
+   width: 100%;
+  height: 100%;
 `;
 
 export const ImageContainer = styled.div`
@@ -28,6 +32,9 @@ export const ImageContainer = styled.div`
   padding: 10px;
   justify-content: center;
   text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: pink;
   
   & img {
     flex: 1;

@@ -3,8 +3,10 @@ import React, { Suspense, useCallback, useEffect, useState } from 'react';
 import { MVP2_INFO } from 'src/constants';
 import ImageItem from '../common/ImageItem';
 import WaveText from '@components/common/WaveText';
-import ImageModal from '../common/ImageModal';
 import imageUrl from '@assets/images/mvp2_main.png';
+import ImageModal from '../common/ImageModal';
+import CommonModal from '../common/CommonModal';
+import { useModal } from '@/context/ModalContext';
 // import { SkeletonImage } from '../common/Skeleton';
 
 
@@ -31,6 +33,12 @@ const ChekitMvp2 = () => {
   const [selectedImgNum, setSelectedImgNum] = useState(0);
   const [showContentsModal, setShowContentsModal] = useState(false);
 
+  const { openModal, closeModal } = useModal() || {};
+
+  const handleOpenModal = () => {
+    openModal(<div>이미지 모달입니다!</div>, MVP2_INFO.map(item => item.url)); // 이미지 배열과 함께 openModal 호출
+  };
+
   const onClickPageLink = useCallback(() => {
     window.open(url);
   },[url])
@@ -45,6 +53,7 @@ const ChekitMvp2 = () => {
         <div className="title">
           <span className="title_inner">Chekit Main Service</span>
         </div>
+        <button onClick={handleOpenModal} style={{color: '#fff'}}>모달 열기</button>
         <div className="description">
           <MainDesc >
             <span>
@@ -89,7 +98,7 @@ const ChekitMvp2 = () => {
         </ImageContents>
       </div>
 
-      <ImageModal
+      {/* <ImageModal
         show={showContentsModal}
         selectedImgNum={selectedImgNum}
         setShowContentsModal={setShowContentsModal}
@@ -97,7 +106,16 @@ const ChekitMvp2 = () => {
         InfoArr={clickedImage}
         imageUrlArr={MVP2_INFO}
         isMobile='mobile'
-      /> 
+      />  */}
+      <CommonModal
+         show={showContentsModal}
+         selectedImgNum={selectedImgNum}
+         setShowContentsModal={setShowContentsModal}
+         onCloseModal={onCloseModal}
+         InfoArr={clickedImage}
+         imageUrlArr={MVP2_INFO}
+         isMobile='mobile'
+      />
     </>
   );
 };

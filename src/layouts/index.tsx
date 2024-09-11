@@ -10,6 +10,7 @@ import AppRoutes from '@/routes';
 import { ThemeProvider } from '@emotion/react';
 import { darkTheme, lightTheme } from '@/styles/theme';
 import { MdLightMode,MdModeNight } from "react-icons/md";
+import { ModalProvider } from '@/context/ModalContext';
 
 const App = () => {
   const workCount = 5;
@@ -59,36 +60,38 @@ const App = () => {
 
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme }>
-      <Container id="workspace" >
-        <Aside id="aside" className={isMenuOpen ? 'open' : 'none'}>
-          <Link to="/">
-            <SideHeader onClick={handleClick}>
-              <div className="name">Yuna Cho</div>
-              <div className="desc">Frontend Engineer</div>
-              <div className="workCount">
-                <span>{workCount}</span> works
-              </div>
-            </SideHeader>
-          </Link>
-          <SideList>
-            <SideMenu isMobileSize={isMobileSize} closeMenu={closeMenu} />
-          </SideList>
-        </Aside>
-        <Overlay className={isMenuOpen && isMobileSize ? 'open' : ''} onClick={closeMenu} />
-          <Content id="content" isMenuOpen={isMenuOpen} isMobileSize={isMobileSize} >
-            <ContentsHeader isMenuOpen={isMenuOpen}>
-              <div onClick={toggleMenu} >
-                { !isMenuOpen? <MenuHamburger /> : <ArrowRight />}
-              </div>
-              <div className='iconBox' onClick={toggleDarkMode}>
-                {isDarkMode ?<MdLightMode size={20}/>: <MdModeNight size={20}/>}
-              </div>
-            </ContentsHeader>
-            <Article>
-              <AppRoutes />
-            </Article>
-          </Content>
-      </Container>
+      <ModalProvider isMenuOpen={isMenuOpen}>
+        <Container id="workspace" >
+          <Aside id="aside" className={isMenuOpen ? 'open' : 'none'}>
+            <Link to="/">
+              <SideHeader onClick={handleClick}>
+                <div className="name">Yuna Cho</div>
+                <div className="desc">Frontend Engineer</div>
+                <div className="workCount">
+                  <span>{workCount}</span> works
+                </div>
+              </SideHeader>
+            </Link>
+            <SideList>
+              <SideMenu isMobileSize={isMobileSize} closeMenu={closeMenu} />
+            </SideList>
+          </Aside>
+          <Overlay className={isMenuOpen && isMobileSize ? 'open' : ''} onClick={closeMenu} />
+            <Content id="content" isMenuOpen={isMenuOpen} isMobileSize={isMobileSize} >
+              <ContentsHeader isMenuOpen={isMenuOpen}>
+                <div onClick={toggleMenu} >
+                  { !isMenuOpen? <MenuHamburger /> : <ArrowRight />}
+                </div>
+                <div className='iconBox' onClick={toggleDarkMode}>
+                  {isDarkMode ?<MdLightMode size={20}/>: <MdModeNight size={20}/>}
+                </div>
+              </ContentsHeader>
+              <Article>
+                <AppRoutes  />
+              </Article>
+            </Content>
+        </Container>
+      </ModalProvider>
     </ThemeProvider>
   );
 };
