@@ -34,7 +34,7 @@ const IntroContent = () => {
           </li>
           <li className="mail">
             PDF Download -
-            <a target='_blank' href="https://drive.google.com/open?id=142akMy2eIRYtt70_gO_RispczdmtjTWU&authuser=0">이력서</a>
+            <a target='_blank' href="https://drive.google.com/open?id=17Abjte8m3TaVBesjmO7uxeb1QYyVpNrC&authuser=0">이력서</a>
             <a target='_blank' href="https://drive.google.com/open?id=1R4gZfi4yeyUEnG-PuaDrmngCYdlSa7UY&authuser=0">경력 기술서</a>
           </li>
         </ul>
