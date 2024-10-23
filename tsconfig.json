@@ -1,4 +1,4 @@
-{ 
+{
   "compilerOptions": {
     "esModuleInterop": true,
     "sourceMap": true,
@@ -7,7 +7,7 @@
     "module": "esnext",
     "moduleResolution": "Node",
     "target": "es5",
-    "strict": true,
+    "strict": false,
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
@@ -19,7 +19,7 @@
       "@utils/*": ["./src/utils/*"],
       "@typings/*": ["./src/typings/*"],
       "@constants/*": ["./src/constants/*"],
-      "@styles/*": ["./src/styles/*"],
+      "@styles/*": ["./src/styles/*"]
     }
   },
   "includes": ["src", "**/*.tsx"],

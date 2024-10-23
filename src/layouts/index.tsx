@@ -9,13 +9,13 @@ import SideMenu from '@/components/SideMenu';
 import AppRoutes from '@/routes';
 import { ThemeProvider } from '@emotion/react';
 import { darkTheme, lightTheme } from '@/styles/theme';
-import { MdLightMode,MdModeNight } from "react-icons/md";
+import { MdLightMode, MdModeNight } from 'react-icons/md';
 
 const App = () => {
   const workCount = 5;
   const [isMobileSize, setIsMobileSize] = useState(window.innerWidth < 800);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false); 
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -46,21 +46,21 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    isMobileSize ? setIsMenuOpen(false): setIsMenuOpen(true);
-  },[isMobileSize])
+    isMobileSize ? setIsMenuOpen(false) : setIsMenuOpen(true);
+  }, [isMobileSize]);
 
-  useEffect (() => {
+  useEffect(() => {
     // 다크 모드 체크
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (prefersDarkMode) {
       setIsDarkMode(true);
     }
-  },[])
+  }, []);
 
   return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme }>
-      <Container id="workspace" >
-        <Aside id="aside" className={isMenuOpen ? 'open' : 'none'}>
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <Container>
+        <Aside className={isMenuOpen ? 'open' : 'none'}>
           <Link to="/">
             <SideHeader onClick={handleClick}>
               <div className="name">Yuna Cho</div>
@@ -74,20 +74,19 @@ const App = () => {
             <SideMenu isMobileSize={isMobileSize} closeMenu={closeMenu} />
           </SideList>
         </Aside>
-        <Overlay className={isMenuOpen && isMobileSize ? 'open' : ''} onClick={closeMenu} />
-          <Content id="content" isMenuOpen={isMenuOpen} isMobileSize={isMobileSize} >
-            <ContentsHeader isMenuOpen={isMenuOpen}>
-              <div onClick={toggleMenu} >
-                { !isMenuOpen? <MenuHamburger /> : <ArrowRight />}
-              </div>
-              <div className='iconBox' onClick={toggleDarkMode}>
-                {isDarkMode ?<MdLightMode size={20}/>: <MdModeNight size={20}/>}
-              </div>
-            </ContentsHeader>
-            <Article>
-              <AppRoutes />
-            </Article>
-          </Content>
+
+        <Content isMenuOpen={isMenuOpen} isMobileSize={isMobileSize}>
+          <ContentsHeader isMenuOpen={isMenuOpen} isMobileSize={isMobileSize}>
+            <div onClick={toggleMenu}>{!isMenuOpen ? <MenuHamburger /> : <ArrowRight />}</div>
+            <div className="iconBox" onClick={toggleDarkMode}>
+              {isDarkMode ? <MdLightMode size={20} /> : <MdModeNight size={20} />}
+            </div>
+          </ContentsHeader>
+
+          <Article isMenuOpen={isMenuOpen}>
+            <AppRoutes />
+          </Article>
+        </Content>
       </Container>
     </ThemeProvider>
   );

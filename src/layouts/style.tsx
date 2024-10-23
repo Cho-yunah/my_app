@@ -3,63 +3,58 @@ import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* 가로 스크롤 방지 */
   background-color: ${(props) => props.theme.backgroundColor};
   color: ${(props) => props.theme.textColorPrimary};
-  transition: background-color 0.3s ease, color 0.3s ease;
-  height: 100vh;
-  margin: 0 auto;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 `;
 
-export const Aside = styled.aside`
-  color: ${(props) => props.theme.textColorPrimary};
-  background-color: ${(props) => props.theme.backgroundColorSecondary};
-  z-index: 1000;
+type LayoutProps = {
+  isMenuOpen?: boolean;
+  isMobileSize?: boolean;
+};
+
+export const Aside = styled.aside<LayoutProps>`
   width: 310px;
   min-width: 310px;
+  background-color: ${(props) => props.theme.backgroundColorSecondary};
   height: 100vh;
-  position: fixed;
-  top: 0; /* 위쪽에 고정 */
-  left: 0; /* 왼쪽에 고정 */
-  bottom: 0; /* 아래쪽에 고정 */
-  overflow-y: auto; /* 세로 스크롤을 허용하여 내용이 넘칠 때 스크롤 표시 */
+  overflow-y: auto; /* 세로 스크롤 허용 */
+  transition: transform 0.4s ease-in-out;
+  z-index: 1000;
+  position: relative; /* Fixed 대신 Relative 사용 */
 
-  &.open {
-    z-index: 1000;  
-    transform: translateX(0);
-    transition: transform 0.2s ease-in-out;
-    // box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); // 약간의 그림자
-  }
+  // &.none {
+  //   transform: translateX(-100%);
+  // width: 0; /* 너비를 0으로 */
+  // min-width: 0;
+  //   overflow: hidden; /* 메뉴가 사라진 후 내용 숨기기 */
+  // }
+
   &.none {
     transform: translateX(-100%);
-    transition: transform 0.5s ease-in-out;
+    width: 0; /* 메뉴가 공간은 그대로 메뉴 항목만 사라짐 */
+    min-width: 0;
+    overflow: hidden; /* 메뉴가 사라진 후 내용 숨기기 */
+  }
+
+  &.open {
+    transform: translateX(0);
   }
 
   @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
-    transform: translateX(-100%);
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  a {
-    text-decoration: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateX(${(props) => (props.className === 'open' ? '0' : '-100%')});
   }
 `;
 
-export const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  color: ${(props) => props.theme.textColorPrimary};
-  z-index: 999;
-  display: none;
-  transition: background 0.3s ease-in-out;
-
-  &.open {
-    display: block;
-  }
-`;
 export const SideHeader = styled.section`
   transition: 0.2s;
   padding: 38px;
@@ -88,7 +83,6 @@ export const SideHeader = styled.section`
     font-weight: 400;
     color: ${(props) => props.theme.textColorGrey};
 
-
     & span {
       font-weight: 500;
       font-size: 15px;
@@ -104,28 +98,22 @@ export const SideList = styled.section`
   color: ${(props) => props.theme.textColorPrimary};
 `;
 
-type ContentsHeaderProps = {
-  isMenuOpen: boolean;
-  isMobileSize: boolean;
-};
-
-export const Content = styled.div<ContentsHeaderProps>`
+export const Content = styled.div<LayoutProps>`
   height: 100%;
   overflow-y: auto;
   flex: 1;
   flex-direction: column;
-  padding: 0px;
-  margin-left: ${(props) => props.isMenuOpen ? (props.isMobileSize? '0px' : '310px' ): '0px'};
-  -webkit-font-smoothing: antialiased;
+  padding: 10px;
   background-color: ${(props) => props.theme.backgroundColorSecondary};
   color: ${(props) => props.theme.textColorPrimary};
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 
   @media screen and (min-width: ${BREAK_POINTS.tablet}px) {
-    max-width : 1360px;
+    max-width: 1360px;
     align-items: center;
     justify-content: center;
-    // margin: 0 auto;
   }
 
   @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
@@ -134,40 +122,48 @@ export const Content = styled.div<ContentsHeaderProps>`
   }
 `;
 
-export const ContentsHeader = styled.header<ContentsHeaderProps>`
+export const ContentsHeader = styled.header<LayoutProps>`
   position: fixed;
-  width: 98dvw;
-  max-width: ${(props) => props.isMenuOpen ? 'calc(100% - 336px)' : '100%'};
+  top: 0;
+  left: ${(props) => (props.isMenuOpen ? '310px' : '0')}; /* 메뉴에 따라 위치 조정 */
+  width: ${(props) => (props.isMenuOpen ? 'calc(100% - 310px)' : '100%')}; /* 메뉴 열림 상태에 맞게 너비 조정 */
   z-index: 900;
-  color: ${(props) => props.theme.textColorPrimary};  
-  cursor: pointer;
   display: flex;
   justify-content: space-between;
+  align-items: center; /* 세로 중앙 정렬 */
+  padding: 10px 20px; /* 상하 좌우 여백 */
+  background-color: ${(props) => props.theme.backgroundColorSecondary};
+  color: ${(props) => props.theme.textColorPrimary};
+  transition:
+    left 0.3s ease-in-out,
+    width 0.3s ease-in-out; /* 부드러운 전환 효과 */
 
   .iconBox {
     background-color: ${(props) => props.theme.iconBoxColor};
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    margin: 5px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    // transition: transform 0.2s ease-in-out;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0 5px; /* 좌우 여백 */
   }
 
-  #back_svg {
-    // transform: rotate(180deg);
-    margin: 10px;
+  #back_svg,
+  #gnb_svg {
     fill: ${(props) => props.theme.textColorPrimary};
-
+    margin: 5px;
   }
+
   #gnb_svg {
     transform: rotate(180deg);
-    margin: 5px;
-    fill: ${(props) => props.theme.textColorPrimary};
   }
 
+  @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
+    left: 0; /* 모바일에서는 메뉴에 상관없이 헤더는 전체 화면에 붙음 */
+    width: 100%; /* 모바일에서는 항상 전체 너비 사용 */
+  }
 `;
 
 const slideUpTitle = keyframes`
@@ -191,38 +187,52 @@ const slideUp = keyframes`
   }
 `;
 
-export const Article = styled.article`
-  display: block;
-  opacity: 1;
-  transform: matrix(1, 0, 0, 1, 0, 0);
-  overflow-x: hidden;
+type ArticleProps = {
+  isMenuOpen: boolean;
+  isMobileSize?: boolean;
+  isFullSize?: boolean;
+};
 
+export const Article = styled.article<LayoutProps>`
+  flex: 1; /* Aside가 차지하지 않는 나머지 공간 사용 */
+  overflow: auto; /* 세로 스크롤 허용 */
+  transition: margin-left 0.3s ease-in-out;
 
   & .title {
     margin: 80px 30px 10px;
-    padding: 20px 5px 10px;
     font-size: 40px;
     font-weight: 300;
-    color: ${(props) => props.theme.textColorPrimary};
     animation: ${slideUpTitle} 0.5s ease-out;
-
-    @media screen and (max-width: ${BREAK_POINTS.mobile}px) {
-      // margin: 80px 30px 10px;
-    }
   }
 
   & .description {
     display: flex;
-    width: auto;
+    // max-width: 800px;
     animation: ${slideUp} 0.5s ease-out;
 
     @media screen and (max-width: 900px) {
       flex-direction: column-reverse;
     }
   }
+`;
 
-  & .underline {
-    text-decoration: underline 0.7px;
-    cursor: pointer;
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: ${(props) => props.theme.textColorPrimary};
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease-in-out,
+    visibility 0.3s;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
   }
 `;

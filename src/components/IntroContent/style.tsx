@@ -44,7 +44,7 @@ export const MainDesc = styled.div`
     color: ${(props) => props.theme.textColorSecondary};
     animation: ${slideUp} 1s ease-out;
   }
-  
+
   & .En {
     margin: 2px 0;
   }
@@ -72,12 +72,12 @@ export const MainDesc = styled.div`
 
 export const SubDesc = styled.ul`
   width: 43%;
-  margin: 40px 30px;
+  // margin: 40px 30px;
   list-style: none;
   font-size: 14px;
   font-weight: 600;
   color: ${(props) => props.theme.textColorGrey};
-  
+
   @media screen and (max-width: 900px) {
     margin: 20px 30px;
     width: auto;
@@ -100,13 +100,13 @@ export const MainImageBox = styled.div`
   width: 90%;
   margin: 20px auto;
   text-align: center;
-  
+
   &.shadow-box {
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16);
   }
 
   & img {
-    width:100%;
+    width: 100%;
     max-width: 680px;
   }
 
@@ -152,7 +152,7 @@ export const Images = styled.div`
     max-height: 400px;
     box-shadow: 0px 0px 5px #dee2e6;
     aspect-ratio: 3/5.5;
-    
+
     &.app {
       aspect-ratio: 3/6;
     }
@@ -179,8 +179,6 @@ export const Images = styled.div`
       max-height: 310px;
     }
   }
-
-
 `;
 
 export const WebImages = styled.div`
@@ -204,11 +202,11 @@ export const WebImages = styled.div`
     aspect-ratio: 5.3/3;
     cursor: pointer;
   }
-  
+
   @media screen and (max-width: ${BREAK_POINTS.tablet}px) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 210px);
-      
+
     & img {
       max-width: 370px;
       max-height: 210px;
@@ -224,4 +222,4 @@ export const WebImages = styled.div`
       max-height: 200px;
     }
   }
-`
+`;
