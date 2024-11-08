@@ -12,6 +12,9 @@ export const Container = styled.div`
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
+
+  -ms-overflow-style: none !important; /* IE 및 Edge */
+  scrollbar-width: none !important; /* Firefox */
 `;
 
 type LayoutProps = {
@@ -53,6 +56,9 @@ export const Aside = styled.aside<LayoutProps>`
     top: 0;
     transform: translateX(${(props) => (props.className === 'open' ? '0' : '-100%')});
   }
+
+  -ms-overflow-style: none !important; /* IE 및 Edge */
+  scrollbar-width: none !important; /* Firefox */
 `;
 
 export const SideHeader = styled.section`
@@ -111,7 +117,7 @@ export const Content = styled.div<LayoutProps>`
     color 0.3s ease;
 
   @media screen and (min-width: ${BREAK_POINTS.tablet}px) {
-    max-width: 1360px;
+    // max-width: 1360px;
     align-items: center;
     justify-content: center;
   }
@@ -120,6 +126,9 @@ export const Content = styled.div<LayoutProps>`
     margin-left: 0px;
     padding-top: 0px;
   }
+
+  -ms-overflow-style: none !important; /* IE 및 Edge */
+  scrollbar-width: none !important; /* Firefox */
 `;
 
 export const ContentsHeader = styled.header<LayoutProps>`
@@ -197,6 +206,10 @@ export const Article = styled.article<LayoutProps>`
   flex: 1; /* Aside가 차지하지 않는 나머지 공간 사용 */
   overflow: auto; /* 세로 스크롤 허용 */
   transition: margin-left 0.3s ease-in-out;
+  height: 100%;
+  /* 스크롤바 숨기기 */
+  -ms-overflow-style: none !important; /* IE 및 Edge */
+  scrollbar-width: none !important; /* Firefox */
 
   & .title {
     margin: 80px 30px 10px;
@@ -207,7 +220,6 @@ export const Article = styled.article<LayoutProps>`
 
   & .description {
     display: flex;
-    // max-width: 800px;
     animation: ${slideUp} 0.5s ease-out;
 
     @media screen and (max-width: 900px) {

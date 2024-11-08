@@ -33,7 +33,7 @@ const IntroContent = () => {
             <li className="mail">
               <a href="mailto:favoryun12@gmail.com">favoryun12@gmail.com</a>
             </li>
-            <li className="mail">PDF Download -</li>
+            {/* <li className="mail">PDF Download -</li> */}
           </ul>
         </Intro>
       </MainDesc>

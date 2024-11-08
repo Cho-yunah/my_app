@@ -59,7 +59,7 @@ const ChekitMvp2 = () => {
           </MainDesc>
           <SubDesc>
             <Intro>
-              <li>Vue, Tailwind, pinia</li>
+              <li>React, React Query, Recoil, Typescript, GSAP(animation tool), Tailwind CSS, pnpm</li>
               <li>Team Project</li>
             </Intro>
           </SubDesc>

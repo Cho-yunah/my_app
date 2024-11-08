@@ -75,7 +75,7 @@ export const SubDesc = styled.ul`
   // margin: 40px 30px;
   list-style: none;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   color: ${(props) => props.theme.textColorGrey};
 
   @media screen and (max-width: 900px) {

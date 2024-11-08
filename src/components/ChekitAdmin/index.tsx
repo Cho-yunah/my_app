@@ -33,7 +33,7 @@ const ChekitAdmin = () => {
             <br />
           </MainDesc>
           <SubDesc>
-            <li>React, Styled-Component, Recoil</li>
+            <li>React, Redux-toolkit, tailwind</li>
             <li>Team Project</li>
           </SubDesc>
         </div>
